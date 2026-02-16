@@ -4,327 +4,310 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ProspectPilot — AI Client Outreach for Freelancers</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink: #0d0d0d;
-  --paper: #f5f0e8;
-  --accent: #ff4d00;
-  --accent2: #00c896;
-  --muted: #8a8478;
-  --card: #ffffff;
-  --border: #e0d9cc;
-  --sidebar: #111111;
-  --sidebar-text: #f5f0e8;
-  --sidebar-muted: #555;
-}
+:root{--ink:#0d0d0d;--paper:#f5f0e8;--accent:#ff4d00;--accent2:#00c896;--muted:#8a8478;--card:#ffffff;--border:#e0d9cc;--sidebar:#111111;--sw:260px;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'DM Mono',monospace;background:var(--paper);color:var(--ink);overflow-x:hidden;}
 
-/* ===================== NAV ===================== */
+/* NAV */
 .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 60px;border-bottom:1px solid var(--border);background:var(--paper);position:sticky;top:0;z-index:100;}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-0.5px;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);}
-.logo-dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);}
+.dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite;flex-shrink:0;}
 @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.5);opacity:.7;}}
-.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links{display:flex;gap:28px;align-items:center;}
 .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
 .nav-links a:hover{color:var(--ink);}
-.btn-primary{background:var(--accent);color:white;border:none;padding:11px 24px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));}
+.btn-primary{background:var(--accent);color:#fff;border:none;padding:11px 22px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px));}
 .btn-primary:hover{background:#e04400;transform:translateY(-1px);}
 
-/* ===================== HERO ===================== */
+/* HERO */
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 65px);}
 .hero-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:28px;}
-.hero-tag::before{content:'';width:24px;height:1px;background:var(--accent);}
-.hero-h1{font-family:'Fraunces',serif;font-size:clamp(44px,4.5vw,72px);font-weight:600;line-height:1.05;letter-spacing:-2px;margin-bottom:24px;}
-.hero-h1 em{font-style:italic;color:var(--accent);}
-.hero-sub{font-size:13px;line-height:1.9;color:var(--muted);max-width:420px;margin-bottom:44px;}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:28px;}
+.tag::before{content:'';width:24px;height:1px;background:var(--accent);}
+h1{font-family:'Fraunces',serif;font-size:clamp(44px,4.5vw,70px);font-weight:600;line-height:1.05;letter-spacing:-2px;margin-bottom:24px;}
+h1 em{font-style:italic;color:var(--accent);}
+.sub{font-size:13px;line-height:1.9;color:var(--muted);max-width:420px;margin-bottom:44px;}
 .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
 .btn-big{background:var(--ink);color:var(--paper);border:none;padding:16px 32px;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
 .btn-big:hover{background:var(--accent);transform:translateY(-2px);}
-.hero-note{font-size:12px;color:var(--muted);}
-.hero-right{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:60px 48px;gap:20px;position:relative;overflow:hidden;}
+.note{font-size:12px;color:var(--muted);}
+.hero-right{background:var(--ink);padding:60px 48px;display:flex;flex-direction:column;justify-content:center;gap:18px;position:relative;overflow:hidden;}
 .hero-right::before{content:'';position:absolute;top:-80px;right:-80px;width:350px;height:350px;background:radial-gradient(circle,rgba(255,77,0,.12) 0%,transparent 70%);pointer-events:none;}
-.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:24px;transition:all .3s;}
-.stat-card:hover{background:rgba(255,255,255,.09);border-color:var(--accent);}
-.stat-num{font-family:'Fraunces',serif;font-size:36px;font-weight:600;color:var(--paper);line-height:1;margin-bottom:6px;}
-.stat-num span{color:var(--accent);}
-.stat-label{font-size:11px;color:rgba(245,240,232,.4);text-transform:uppercase;letter-spacing:1.5px;}
-.mini-lead{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:14px 18px;display:flex;align-items:center;gap:14px;animation:slideIn .5s ease both;}
-@keyframes slideIn{from{opacity:0;transform:translateX(16px);}to{opacity:1;transform:translateX(0);}}
-.lead-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0;color:white;}
-.lead-info{flex:1;}
-.lead-name{font-size:13px;color:var(--paper);font-weight:500;margin-bottom:2px;}
-.lead-role{font-size:11px;color:rgba(245,240,232,.4);}
-.lead-score{font-family:'Syne',sans-serif;font-weight:800;font-size:12px;padding:4px 10px;background:rgba(0,200,150,.15);color:var(--accent2);border:1px solid rgba(0,200,150,.3);}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:22px;transition:all .3s;}
+.stat:hover{border-color:var(--accent);}
+.stat-n{font-family:'Fraunces',serif;font-size:34px;font-weight:600;color:var(--paper);line-height:1;margin-bottom:5px;}
+.stat-n span{color:var(--accent);}
+.stat-l{font-size:11px;color:rgba(245,240,232,.4);text-transform:uppercase;letter-spacing:1.5px;}
+.mini-lead{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:13px 16px;display:flex;align-items:center;gap:12px;}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0;color:#fff;}
+.ln{font-size:13px;color:var(--paper);font-weight:500;margin-bottom:2px;}
+.lr{font-size:11px;color:rgba(245,240,232,.4);}
+.lscore{font-family:'Syne',sans-serif;font-weight:800;font-size:12px;padding:3px 9px;background:rgba(0,200,150,.15);color:var(--accent2);border:1px solid rgba(0,200,150,.3);}
 
-/* ===================== FEATURES ===================== */
+/* FEATURES */
 .features{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);}
 .feature{padding:48px;border-right:1px solid var(--border);transition:background .3s;}
 .feature:last-child{border-right:none;}
 .feature:hover{background:rgba(255,77,0,.02);}
-.feature-icon{font-size:28px;margin-bottom:18px;display:block;}
-.feature-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;}
-.feature-desc{font-size:13px;color:var(--muted);line-height:1.8;}
+.fi{font-size:26px;margin-bottom:16px;display:block;}
+.ft{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:10px;}
+.fd{font-size:13px;color:var(--muted);line-height:1.8;}
 
-/* ===================== HOW IT WORKS ===================== */
-.how-section{padding:80px 60px;border-top:1px solid var(--border);}
-.section-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
-.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.section-title{font-family:'Fraunces',serif;font-size:40px;font-weight:600;letter-spacing:-1px;margin-bottom:48px;max-width:500px;}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-.step{background:var(--paper);padding:36px 28px;transition:background .3s;}
-.step:hover{background:white;}
-.step-num{font-family:'Fraunces',serif;font-size:48px;font-weight:600;color:var(--border);margin-bottom:16px;line-height:1;}
-.step-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:10px;}
-.step-desc{font-size:12px;color:var(--muted);line-height:1.8;}
+/* SECTIONS */
+.sec{padding:80px 60px;border-top:1px solid var(--border);}
+.sec-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.sec-title{font-family:'Fraunces',serif;font-size:38px;font-weight:600;letter-spacing:-1px;margin-bottom:44px;max-width:520px;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
+.step{background:var(--paper);padding:32px 24px;transition:background .2s;}
+.step:hover{background:#fff;}
+.step-n{font-family:'Fraunces',serif;font-size:44px;font-weight:600;color:var(--border);margin-bottom:14px;line-height:1;}
+.step-t{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;margin-bottom:8px;}
+.step-d{font-size:12px;color:var(--muted);line-height:1.8;}
 
-/* ===================== TESTIMONIALS ===================== */
-.testimonials{padding:80px 60px;border-top:1px solid var(--border);background:var(--ink);}
-.testimonials .section-label{color:rgba(245,240,232,.3);}
-.testimonials .section-label::after{background:rgba(255,255,255,.07);}
-.testimonials .section-title{color:var(--paper);}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:32px;transition:all .3s;}
-.testi-card:hover{background:rgba(255,255,255,.07);border-color:var(--accent);}
-.testi-quote{font-size:13px;line-height:1.9;color:rgba(245,240,232,.7);margin-bottom:24px;font-style:italic;}
-.testi-author{display:flex;align-items:center;gap:12px;}
-.testi-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:13px;color:white;}
+/* TESTIMONIALS */
+.testi-sec{padding:80px 60px;border-top:1px solid var(--border);background:var(--ink);}
+.testi-sec .sec-label{color:rgba(245,240,232,.3);}
+.testi-sec .sec-label::after{background:rgba(255,255,255,.07);}
+.testi-sec .sec-title{color:var(--paper);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.testi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:28px;transition:all .3s;}
+.testi:hover{background:rgba(255,255,255,.07);border-color:var(--accent);}
+.stars{color:var(--accent);font-size:12px;letter-spacing:2px;margin-bottom:14px;}
+.testi-q{font-size:13px;line-height:1.9;color:rgba(245,240,232,.7);margin-bottom:20px;font-style:italic;}
+.testi-auth{display:flex;align-items:center;gap:10px;}
 .testi-name{font-size:13px;color:var(--paper);font-weight:500;}
 .testi-role{font-size:11px;color:rgba(245,240,232,.4);}
-.stars{color:var(--accent);font-size:12px;margin-bottom:16px;letter-spacing:2px;}
 
-/* ===================== PRICING ===================== */
-.pricing-section{padding:80px 60px;border-top:1px solid var(--border);}
+/* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:40px;}
-.price-card{background:var(--card);padding:40px;position:relative;transition:all .3s;}
-.price-card:hover{background:#fdf9f4;}
-.price-card.featured{background:var(--ink);}
-.price-badge{position:absolute;top:-1px;right:24px;background:var(--accent);color:white;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;font-family:'Syne',sans-serif;font-weight:700;}
-.price-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--muted);}
-.price-card.featured .price-name{color:rgba(245,240,232,.4);}
-.price-amount{font-family:'Fraunces',serif;font-size:52px;font-weight:600;line-height:1;margin-bottom:4px;color:var(--ink);}
-.price-card.featured .price-amount{color:var(--paper);}
-.price-period{font-size:13px;color:var(--muted);margin-bottom:32px;}
-.price-card.featured .price-period{color:rgba(245,240,232,.4);}
-.price-features{list-style:none;}
-.price-features li{font-size:13px;padding:10px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;align-items:center;gap:10px;}
-.price-card.featured .price-features li{color:rgba(245,240,232,.6);border-bottom-color:rgba(255,255,255,.07);}
-.price-features li::before{content:'→';color:var(--accent2);flex-shrink:0;}
-.price-cta{margin-top:32px;width:100%;padding:14px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;border:2px solid var(--ink);background:transparent;color:var(--ink);}
-.price-card.featured .price-cta{background:var(--accent);border-color:var(--accent);color:white;}
-.price-cta:hover{background:var(--ink);color:var(--paper);}
-.price-card.featured .price-cta:hover{background:#e04400;border-color:#e04400;}
+.pc{background:var(--card);padding:36px;position:relative;transition:background .2s;}
+.pc:hover{background:#fdf9f4;}
+.pc.hot{background:var(--ink);}
+.pbadge{position:absolute;top:-1px;right:20px;background:var(--accent);color:#fff;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;font-family:'Syne',sans-serif;font-weight:700;}
+.pname{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--muted);}
+.pc.hot .pname{color:rgba(245,240,232,.4);}
+.price{font-family:'Fraunces',serif;font-size:48px;font-weight:600;line-height:1;margin-bottom:4px;}
+.pc.hot .price{color:var(--paper);}
+.pper{font-size:13px;color:var(--muted);margin-bottom:28px;}
+.pc.hot .pper{color:rgba(245,240,232,.4);}
+.pf{list-style:none;}
+.pf li{font-size:13px;padding:9px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;align-items:center;gap:8px;}
+.pc.hot .pf li{color:rgba(245,240,232,.6);border-bottom-color:rgba(255,255,255,.07);}
+.pf li::before{content:'→';color:var(--accent2);flex-shrink:0;}
+.pcta{margin-top:28px;width:100%;padding:13px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;border:2px solid var(--ink);background:transparent;color:var(--ink);}
+.pc.hot .pcta{background:var(--accent);border-color:var(--accent);color:#fff;}
+.pcta:hover{background:var(--ink);color:var(--paper);}
+.pc.hot .pcta:hover{background:#e04400;}
 
-/* ===================== FAQ ===================== */
-.faq-section{padding:80px 60px;border-top:1px solid var(--border);}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:40px;}
-.faq-item{background:var(--paper);padding:28px 32px;cursor:pointer;transition:background .2s;}
-.faq-item:hover{background:white;}
-.faq-q{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;}
-.faq-q::after{content:'+';color:var(--accent);font-size:20px;font-weight:300;}
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:36px;}
+.faq{background:var(--paper);padding:24px 28px;transition:background .2s;}
+.faq:hover{background:#fff;}
+.faq-q{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;margin-bottom:8px;}
 .faq-a{font-size:13px;color:var(--muted);line-height:1.8;}
 
-/* ===================== FOOTER ===================== */
-footer{background:var(--ink);color:var(--paper);padding:64px 60px 32px;}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
-.footer-brand .logo{color:var(--paper);margin-bottom:16px;display:inline-flex;}
-.footer-brand p{font-size:13px;color:rgba(245,240,232,.4);line-height:1.8;max-width:260px;margin-bottom:24px;}
-.social-links{display:flex;gap:12px;}
-.social-link{width:36px;height:36px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(245,240,232,.5);text-decoration:none;transition:all .2s;}
-.social-link:hover{border-color:var(--accent);color:var(--accent);}
-.footer-col-title{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:20px;}
-.footer-links{list-style:none;}
-.footer-links li{margin-bottom:10px;}
-.footer-links a{font-size:13px;color:rgba(245,240,232,.5);text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--paper);}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+/* FOOTER */
+footer{background:var(--ink);color:var(--paper);padding:60px 60px 28px;}
+.cb{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:22px 28px;display:flex;align-items:center;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:14px;}
+.cb-text{font-size:14px;color:var(--paper);}
+.cb-text span{color:var(--accent);}
+.cb-email{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:9px 18px;transition:all .2s;}
+.cb-email:hover{background:var(--accent);color:#fff;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px;}
+.fb p{font-size:13px;color:rgba(245,240,232,.4);line-height:1.8;max-width:250px;margin:14px 0 20px;}
+.socials{display:flex;gap:10px;}
+.soc{width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(245,240,232,.5);text-decoration:none;transition:all .2s;}
+.soc:hover{border-color:var(--accent);color:var(--accent);}
+.fc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:18px;}
+.fl-footer{list-style:none;}
+.fl-footer li{margin-bottom:9px;}
+.fl-footer a{font-size:13px;color:rgba(245,240,232,.5);text-decoration:none;transition:color .2s;}
+.fl-footer a:hover{color:var(--paper);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .footer-bottom p{font-size:12px;color:rgba(245,240,232,.3);}
-.footer-bottom-links{display:flex;gap:24px;}
-.footer-bottom-links a{font-size:12px;color:rgba(245,240,232,.3);text-decoration:none;transition:color .2s;}
-.footer-bottom-links a:hover{color:var(--paper);}
-.contact-bar{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;}
-.contact-bar-text{font-size:14px;color:var(--paper);}
-.contact-bar-text span{color:var(--accent);}
-.contact-bar-email{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:10px 20px;transition:all .2s;}
-.contact-bar-email:hover{background:var(--accent);color:white;}
+.fbl{display:flex;gap:20px;}
+.fbl a{font-size:12px;color:rgba(245,240,232,.3);text-decoration:none;}
+.fbl a:hover{color:var(--paper);}
 
-/* ===================== APP SHELL ===================== */
-#app{display:none;min-height:100vh;}
-.app-layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;}
-.sidebar{background:var(--sidebar);color:var(--sidebar-text);display:flex;flex-direction:column;position:fixed;top:0;left:0;width:240px;height:100vh;overflow-y:auto;z-index:50;}
-.sidebar-logo{padding:24px 20px;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px;}
-.sidebar-section{padding:20px 16px 6px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sidebar-muted);}
-.sidebar-nav{list-style:none;padding:0 10px;}
-.sidebar-nav li{margin-bottom:2px;}
-.sidebar-nav a{display:flex;align-items:center;gap:12px;padding:11px 14px;font-size:13px;color:rgba(245,240,232,.55);text-decoration:none;border-radius:4px;transition:all .2s;cursor:pointer;}
-.sidebar-nav a:hover,.sidebar-nav a.active{background:rgba(255,255,255,.07);color:var(--paper);}
-.sidebar-nav a.active{color:var(--accent);}
-.nav-icon{font-size:15px;width:20px;text-align:center;}
-.sidebar-bottom{margin-top:auto;padding:14px 10px;border-top:1px solid rgba(255,255,255,.06);}
-.user-pill{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.05);border-radius:4px;}
-.user-avatar{width:32px;height:32px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0;color:white;}
-.user-name{font-size:13px;color:var(--paper);font-weight:500;}
-.user-plan{font-size:10px;color:var(--sidebar-muted);}
+/* APP SHELL */
+#app{display:none;}
+.app-wrap{display:grid;grid-template-columns:var(--sw) 1fr;min-height:100vh;}
+.sidebar{background:var(--sidebar);color:var(--paper);position:fixed;top:0;left:0;width:var(--sw);height:100vh;overflow-y:auto;display:flex;flex-direction:column;z-index:50;}
+.sb-logo{padding:22px 20px;font-family:'Syne',sans-serif;font-weight:800;font-size:17px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px;letter-spacing:-0.3px;}
+.sb-sec{padding:18px 16px 5px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#444;}
+.sb-nav{list-style:none;padding:0 10px;}
+.sb-nav li{margin-bottom:2px;}
+.sb-nav a{display:flex;align-items:center;gap:10px;padding:11px 14px;font-size:13px;color:rgba(245,240,232,.5);text-decoration:none;border-radius:4px;transition:all .2s;cursor:pointer;}
+.sb-nav a:hover,.sb-nav a.on{background:rgba(255,255,255,.07);color:var(--paper);}
+.sb-nav a.on{color:var(--accent);}
+.ni{font-size:14px;width:18px;text-align:center;}
+.sb-bottom{margin-top:auto;padding:12px 10px;border-top:1px solid rgba(255,255,255,.06);}
+.upill{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.05);border-radius:4px;}
+.uav{width:32px;height:32px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:11px;flex-shrink:0;color:#fff;}
+.uname{font-size:13px;color:var(--paper);font-weight:500;}
+.uplan{font-size:10px;color:#555;}
 
-/* ===================== MAIN CONTENT ===================== */
-.main-content{margin-left:240px;min-height:100vh;background:var(--paper);}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 36px;background:var(--paper);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:40;}
-.page-title{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;}
-.topbar-actions{display:flex;gap:12px;align-items:center;}
-.badge{background:var(--accent);color:white;font-size:10px;font-family:'Syne',sans-serif;font-weight:800;padding:3px 8px;border-radius:20px;}
-.page{display:none;padding:36px;}
-.page.active{display:block;}
+/* MAIN */
+.main-wrap{margin-left:var(--sw);min-height:100vh;background:var(--paper);display:flex;flex-direction:column;}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;background:var(--paper);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:40;}
+.page-title{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;}
+.tb-right{display:flex;gap:10px;align-items:center;}
+.badge{background:var(--accent);color:#fff;font-size:10px;font-family:'Syne',sans-serif;font-weight:800;padding:3px 8px;border-radius:20px;}
+.tb-note{font-size:12px;color:var(--muted);}
+.page{display:none;padding:32px;flex:1;width:100%;}
+.page.on{display:block;}
 
-/* ===================== DASHBOARD ===================== */
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px;}
-.kpi-card{background:var(--card);border:1px solid var(--border);padding:28px 24px;position:relative;overflow:hidden;transition:all .3s;}
-.kpi-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06);}
-.kpi-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .3s;}
-.kpi-card:hover::after{transform:scaleX(1);}
-.kpi-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
-.kpi-value{font-family:'Fraunces',serif;font-size:42px;font-weight:600;line-height:1;margin-bottom:8px;}
-.kpi-change{font-size:12px;}
-.kpi-change.up{color:var(--accent2);}
-.dashboard-grid{display:grid;grid-template-columns:3fr 2fr;gap:16px;}
-.card{background:var(--card);border:1px solid var(--border);padding:28px;}
-.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;}
-.card-action{font-size:12px;color:var(--accent);cursor:pointer;border:none;background:none;font-family:'DM Mono',monospace;}
-.activity-item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
-.activity-item:last-child{border-bottom:none;}
-.activity-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;}
-.activity-text{font-size:13px;line-height:1.6;}
-.activity-time{font-size:11px;color:var(--muted);margin-top:3px;}
-.activity-bold{font-weight:500;}
-.pipeline-item{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--border);}
-.pipeline-item:last-child{border-bottom:none;}
-.pipeline-stage{font-size:11px;color:var(--muted);margin-bottom:2px;}
-.pipeline-name{font-size:13px;font-weight:500;}
-.pipeline-value{font-family:'Fraunces',serif;font-size:20px;color:var(--accent2);}
+/* DASHBOARD */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;width:100%;}
+.kpi{background:var(--card);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden;transition:all .3s;min-width:0;}
+.kpi:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.06);}
+.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .3s;}
+.kpi:hover::after{transform:scaleX(1);}
+.kpi-l{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.kpi-v{font-family:'Fraunces',serif;font-size:40px;font-weight:600;line-height:1;margin-bottom:8px;}
+.kpi-c{font-size:12px;color:var(--accent2);}
+.dash-grid{display:grid;grid-template-columns:3fr 2fr;gap:16px;width:100%;}
+.card{background:var(--card);border:1px solid var(--border);padding:24px;min-width:0;}
+.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.ct{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;}
+.ca{font-size:12px;color:var(--accent);cursor:pointer;border:none;background:none;font-family:'DM Mono',monospace;}
+.act-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.act-item:last-child{border-bottom:none;}
+.adot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;}
+.atxt{font-size:13px;line-height:1.6;}
+.atime{font-size:11px;color:var(--muted);margin-top:3px;}
+.ab{font-weight:500;}
+.pi-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);}
+.pi-item:last-child{border-bottom:none;}
+.pi-s{font-size:11px;color:var(--muted);margin-bottom:2px;}
+.pi-n{font-size:13px;font-weight:500;}
+.pi-v{font-family:'Fraunces',serif;font-size:20px;color:var(--accent2);}
 
-/* ===================== LEADS ===================== */
-.leads-controls{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap;}
-.search-input{flex:1;min-width:200px;padding:10px 16px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--card);outline:none;transition:border-color .2s;}
-.search-input:focus{border-color:var(--accent);}
-.select-input{padding:10px 16px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--card);outline:none;cursor:pointer;}
-.leads-table{width:100%;border-collapse:collapse;}
-.leads-table th{text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:12px 16px;border-bottom:2px solid var(--border);font-weight:400;}
-.leads-table td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;}
-.leads-table tr:hover td{background:rgba(255,77,0,.02);}
-.lead-name-cell{display:flex;align-items:center;gap:12px;}
-.score-bar{display:flex;align-items:center;gap:10px;}
-.score-fill{height:4px;background:var(--border);width:60px;position:relative;overflow:hidden;}
-.score-fill-inner{position:absolute;left:0;top:0;bottom:0;background:var(--accent2);}
-.score-fill-inner.medium{background:#f5a623;}
-.score-fill-inner.low{background:var(--muted);}
-.status-pill{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;font-size:11px;font-weight:500;}
-.status-pill.new{background:rgba(0,200,150,.1);color:var(--accent2);}
-.status-pill.contacted{background:rgba(245,166,35,.1);color:#f5a623;}
-.status-pill.replied{background:rgba(99,102,241,.1);color:#6366f1;}
-.status-pill.closed{background:rgba(255,77,0,.1);color:var(--accent);}
-.action-btn{padding:6px 14px;font-size:12px;font-family:'Syne',sans-serif;font-weight:700;border:1px solid var(--border);background:transparent;cursor:pointer;transition:all .2s;color:var(--ink);}
-.action-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
-.action-btn.primary{background:var(--accent);color:white;border-color:var(--accent);}
-.action-btn.primary:hover{background:#e04400;}
+/* LEADS */
+.lc{display:flex;gap:12px;margin-bottom:20px;align-items:center;flex-wrap:wrap;width:100%;}
+.si{flex:1;min-width:200px;padding:10px 14px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--card);outline:none;transition:border-color .2s;}
+.si:focus{border-color:var(--accent);}
+.sel{padding:10px 14px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--card);outline:none;cursor:pointer;}
+table{width:100%;border-collapse:collapse;}
+th{text-align:left;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:12px 16px;border-bottom:2px solid var(--border);font-weight:400;}
+td{padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle;}
+tr:hover td{background:rgba(255,77,0,.02);}
+.lnc{display:flex;align-items:center;gap:10px;}
+.sb-bar{display:flex;align-items:center;gap:8px;}
+.sf{height:4px;background:var(--border);width:60px;position:relative;overflow:hidden;}
+.sfi{position:absolute;left:0;top:0;bottom:0;background:var(--accent2);}
+.sfi.med{background:#f5a623;}
+.sfi.low{background:var(--muted);}
+.pill{display:inline-flex;padding:3px 9px;font-size:11px;font-weight:500;}
+.pill.new{background:rgba(0,200,150,.1);color:var(--accent2);}
+.pill.contacted{background:rgba(245,166,35,.1);color:#f5a623;}
+.pill.replied{background:rgba(99,102,241,.1);color:#6366f1;}
+.pill.closed{background:rgba(255,77,0,.1);color:var(--accent);}
+.abtn{padding:6px 12px;font-size:12px;font-family:'Syne',sans-serif;font-weight:700;border:1px solid var(--border);background:transparent;cursor:pointer;transition:all .2s;color:var(--ink);}
+.abtn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.abtn.p{background:var(--accent);color:#fff;border-color:var(--accent);}
+.abtn.p:hover{background:#e04400;}
 
-/* ===================== OUTREACH ===================== */
-.outreach-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.form-group{margin-bottom:18px;}
-.form-label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
-.form-input{width:100%;padding:11px 16px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--paper);outline:none;transition:border-color .2s;color:var(--ink);}
-.form-input:focus{border-color:var(--accent);}
-textarea.form-input{resize:vertical;min-height:100px;}
-.template-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:20px;}
-.tab-btn{padding:10px 20px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;border:none;border-bottom:2px solid transparent;background:transparent;cursor:pointer;color:var(--muted);transition:all .2s;margin-bottom:-1px;}
-.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
-.tab-btn:hover{color:var(--ink);}
-.ai-output{background:var(--ink);color:var(--paper);padding:28px;min-height:320px;font-size:13px;line-height:1.8;position:relative;}
-.ai-output-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:18px;display:flex;align-items:center;gap:8px;}
-.ai-output-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);}
-.typing-cursor{display:inline-block;width:2px;height:14px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:middle;margin-left:2px;}
+/* OUTREACH */
+.out-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;width:100%;}
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:24px;}
+.tab{padding:10px 18px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;border:none;border-bottom:2px solid transparent;background:transparent;cursor:pointer;color:var(--muted);transition:all .2s;margin-bottom:-1px;}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent);}
+.tab:hover{color:var(--ink);}
+.fg{margin-bottom:16px;}
+.fl-label{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.fi-input{width:100%;padding:11px 14px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:#faf8f4;outline:none;transition:border-color .2s;color:var(--ink);}
+.fi-input:focus{border-color:var(--accent);}
+textarea.fi-input{resize:vertical;min-height:90px;}
+.ai-box{background:var(--ink);color:var(--paper);padding:24px;min-height:360px;font-size:13px;line-height:1.9;white-space:pre-wrap;width:100%;}
+.ai-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.3);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.ai-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);}
+.cursor{display:inline-block;width:2px;height:13px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:middle;margin-left:1px;}
 @keyframes blink{50%{opacity:0;}}
-.output-actions{display:flex;gap:12px;margin-top:16px;}
+.out-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
 
-/* ===================== CRM ===================== */
-.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;}
-.kanban-col-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.kanban-col-title{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;}
-.kanban-count{background:var(--border);color:var(--muted);font-size:11px;font-family:'Syne',sans-serif;font-weight:700;padding:2px 8px;}
-.kanban-card{background:var(--card);border:1px solid var(--border);padding:16px;margin-bottom:10px;cursor:grab;transition:all .2s;}
-.kanban-card:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(0,0,0,.07);transform:translateY(-1px);}
-.kanban-card-name{font-size:13px;font-weight:500;margin-bottom:3px;}
-.kanban-card-role{font-size:11px;color:var(--muted);margin-bottom:12px;}
-.kanban-card-meta{display:flex;justify-content:space-between;align-items:center;}
-.kanban-value{font-family:'Fraunces',serif;font-size:16px;color:var(--accent2);}
-.kanban-days{font-size:11px;color:var(--muted);}
-.kanban-col-new{border-top:3px solid #94a3b8;}
-.kanban-col-contacted{border-top:3px solid #f5a623;}
-.kanban-col-replied{border-top:3px solid #6366f1;}
-.kanban-col-closed{border-top:3px solid var(--accent2);}
+/* CRM */
+.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;width:100%;}
+.kc-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.kc-t{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;}
+.kc-n{background:var(--border);color:var(--muted);font-size:11px;font-family:'Syne',sans-serif;font-weight:700;padding:2px 7px;}
+.kk{background:var(--card);border:1px solid var(--border);padding:14px;margin-bottom:10px;cursor:grab;transition:all .2s;}
+.kk:hover{border-color:var(--accent);box-shadow:0 4px 16px rgba(0,0,0,.07);transform:translateY(-1px);}
+.kk-name{font-size:13px;font-weight:500;margin-bottom:3px;}
+.kk-role{font-size:11px;color:var(--muted);margin-bottom:10px;}
+.kk-foot{display:flex;justify-content:space-between;align-items:center;}
+.kk-v{font-family:'Fraunces',serif;font-size:16px;color:var(--accent2);}
+.kk-d{font-size:11px;color:var(--muted);}
+.col-new{border-top:3px solid #94a3b8;}
+.col-contacted{border-top:3px solid #f5a623;}
+.col-replied{border-top:3px solid #6366f1;}
+.col-closed{border-top:3px solid var(--accent2);}
 
-/* ===================== SETTINGS ===================== */
-.settings-grid{display:grid;grid-template-columns:220px 1fr;gap:24px;}
-.settings-nav{background:var(--card);border:1px solid var(--border);}
-.settings-nav-item{padding:14px 20px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border);transition:all .2s;display:flex;align-items:center;gap:10px;}
-.settings-nav-item:last-child{border-bottom:none;}
-.settings-nav-item:hover{background:rgba(255,77,0,.03);}
-.settings-nav-item.active{color:var(--accent);background:rgba(255,77,0,.04);border-left:2px solid var(--accent);}
-.settings-panel{display:none;}
-.settings-panel.active{display:block;}
-.settings-section{background:var(--card);border:1px solid var(--border);padding:28px;margin-bottom:16px;}
-.settings-section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;}
-.settings-section-desc{font-size:12px;color:var(--muted);margin-bottom:24px;}
-.settings-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border);}
-.settings-row:last-child{border-bottom:none;}
-.settings-row-label{font-size:13px;font-weight:500;}
-.settings-row-desc{font-size:11px;color:var(--muted);margin-top:2px;}
-.toggle{width:44px;height:24px;background:var(--border);border-radius:12px;position:relative;cursor:pointer;transition:background .3s;flex-shrink:0;}
+/* SETTINGS */
+.set-grid{display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start;width:100%;}
+.set-nav{background:var(--card);border:1px solid var(--border);overflow:hidden;}
+.sni{padding:13px 18px;font-size:13px;cursor:pointer;border-bottom:1px solid var(--border);transition:all .2s;display:flex;align-items:center;gap:10px;}
+.sni:last-child{border-bottom:none;}
+.sni:hover{background:rgba(255,77,0,.03);}
+.sni.on{color:var(--accent);background:rgba(255,77,0,.04);border-left:3px solid var(--accent);padding-left:15px;}
+.sp{display:none;}
+.sp.on{display:block;}
+.ss{background:var(--card);border:1px solid var(--border);padding:24px;margin-bottom:14px;}
+.ss-t{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;}
+.ss-d{font-size:12px;color:var(--muted);margin-bottom:20px;}
+.sr{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--border);}
+.sr:last-child{border-bottom:none;}
+.sr-l{font-size:13px;font-weight:500;}
+.sr-d{font-size:11px;color:var(--muted);margin-top:2px;}
+.toggle{width:42px;height:22px;background:var(--border);border-radius:11px;position:relative;cursor:pointer;transition:background .3s;flex-shrink:0;}
 .toggle.on{background:var(--accent2);}
-.toggle::after{content:'';position:absolute;width:18px;height:18px;background:white;border-radius:50%;top:3px;left:3px;transition:transform .3s;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.toggle::after{content:'';position:absolute;width:16px;height:16px;background:#fff;border-radius:50%;top:3px;left:3px;transition:transform .3s;box-shadow:0 1px 4px rgba(0,0,0,.2);}
 .toggle.on::after{transform:translateX(20px);}
-.settings-input{padding:9px 14px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--paper);outline:none;width:260px;transition:border-color .2s;}
-.settings-input:focus{border-color:var(--accent);}
-.settings-select{padding:9px 14px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--paper);outline:none;cursor:pointer;}
-.danger-zone{background:rgba(255,77,0,.04);border:1px solid rgba(255,77,0,.2);padding:28px;}
-.danger-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--accent);margin-bottom:4px;}
-.danger-desc{font-size:12px;color:var(--muted);margin-bottom:20px;}
-.btn-danger{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:10px 20px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;}
-.btn-danger:hover{background:var(--accent);color:white;}
-.plan-card{background:var(--ink);padding:24px;margin-bottom:16px;}
-.plan-name{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--paper);margin-bottom:4px;}
-.plan-price{font-family:'Fraunces',serif;font-size:36px;color:var(--accent);margin-bottom:4px;}
-.plan-desc{font-size:12px;color:rgba(245,240,232,.4);margin-bottom:20px;}
-.plan-features-list{list-style:none;}
-.plan-features-list li{font-size:13px;color:rgba(245,240,232,.6);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:10px;}
-.plan-features-list li::before{content:'✓';color:var(--accent2);}
-.usage-bar{height:6px;background:rgba(255,255,255,.1);margin:8px 0 4px;}
-.usage-fill{height:100%;background:var(--accent2);transition:width .5s ease;}
-.usage-label{display:flex;justify-content:space-between;font-size:11px;color:rgba(245,240,232,.4);}
+.si-set{padding:9px 12px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--paper);outline:none;min-width:220px;}
+.si-set:focus{border-color:var(--accent);}
+.sel-set{padding:9px 12px;font-family:'DM Mono',monospace;font-size:13px;border:1px solid var(--border);background:var(--paper);outline:none;cursor:pointer;}
+.plan-box{background:var(--ink);padding:22px;margin-bottom:14px;}
+.plan-name{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--paper);margin-bottom:4px;}
+.plan-price{font-family:'Fraunces',serif;font-size:34px;color:var(--accent);margin-bottom:3px;}
+.plan-desc{font-size:12px;color:rgba(245,240,232,.4);margin-bottom:18px;}
+.pfl{list-style:none;}
+.pfl li{font-size:13px;color:rgba(245,240,232,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px;}
+.pfl li::before{content:'✓';color:var(--accent2);}
+.ub{height:5px;background:rgba(255,255,255,.1);margin:8px 0 4px;}
+.uf{height:100%;background:var(--accent2);}
+.ul-row{display:flex;justify-content:space-between;font-size:11px;color:rgba(245,240,232,.4);}
+.danger{background:rgba(255,77,0,.04);border:1px solid rgba(255,77,0,.2);padding:24px;}
+.danger-t{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--accent);margin-bottom:4px;}
+.danger-d{font-size:12px;color:var(--muted);margin-bottom:18px;}
+.btn-danger{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:9px 18px;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;}
+.btn-danger:hover{background:var(--accent);color:#fff;}
 
-/* ===================== TOAST ===================== */
-.toast{position:fixed;bottom:28px;right:28px;background:var(--ink);color:var(--paper);padding:14px 22px;font-size:13px;display:flex;align-items:center;gap:12px;z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s ease;max-width:320px;}
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:13px 20px;font-size:13px;display:flex;align-items:center;gap:10px;z-index:9999;transform:translateY(60px);opacity:0;transition:all .3s ease;max-width:300px;}
 .toast.show{transform:translateY(0);opacity:1;}
 
-/* ===================== MODAL ===================== */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:none;align-items:center;justify-content:center;}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--card);padding:40px;max-width:480px;width:90%;position:relative;}
-.modal-title{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px;}
-.modal-desc{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.7;}
-.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);}
-.modal-close:hover{color:var(--ink);}
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:none;align-items:center;justify-content:center;}
+.overlay.open{display:flex;}
+.modal{background:var(--card);padding:36px;max-width:460px;width:90%;position:relative;}
+.modal-t{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;margin-bottom:8px;}
+.modal-d{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.7;}
+.modal-x{position:absolute;top:14px;right:16px;background:none;border:none;font-size:18px;cursor:pointer;color:var(--muted);}
+.modal-x:hover{color:var(--ink);}
+.modal-btns{display:flex;gap:10px;}
 </style>
 </head>
 <body>
 
-<!-- ========== LANDING PAGE ========== -->
+<!-- ═══════ LANDING ═══════ -->
 <div id="landing">
   <nav class="nav">
-    <a href="#" class="logo"><div class="logo-dot"></div>ProspectPilot</a>
+    <a href="#" class="logo"><div class="dot"></div>ProspectPilot</a>
     <div class="nav-links">
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
@@ -335,433 +318,330 @@ textarea.form-input{resize:vertical;min-height:100px;}
     </div>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-tag">AI-Powered Growth Engine</div>
-      <h1 class="hero-h1">Land clients<br>on <em>autopilot.</em></h1>
-      <p class="hero-sub">ProspectPilot finds high-intent leads, writes personalized outreach in seconds, and tracks every conversation — so you spend less time prospecting and more time closing.</p>
+      <div class="tag">AI-Powered Growth Engine</div>
+      <h1>Land clients<br>on <em>autopilot.</em></h1>
+      <p class="sub">ProspectPilot finds high-intent leads, writes personalised outreach in seconds, and tracks every conversation — so you spend less time prospecting and more time closing.</p>
       <div class="hero-actions">
-        <button class="btn-big" onclick="launchApp()">Start for free — no card needed</button>
-        <span class="hero-note">✦ 14-day trial &nbsp;·&nbsp; Cancel anytime</span>
+        <button class="btn-big" onclick="launchApp()">Start free — no card needed</button>
+        <span class="note">✦ 14-day trial · Cancel anytime</span>
       </div>
     </div>
     <div class="hero-right">
       <div class="stats-grid">
-        <div class="stat-card"><div class="stat-num">1.3<span>×</span></div><div class="stat-label">New clients / month</div></div>
-        <div class="stat-card"><div class="stat-num">4.2<span>h</span></div><div class="stat-label">Saved per week</div></div>
-        <div class="stat-card"><div class="stat-num">38<span>%</span></div><div class="stat-label">Reply rate avg.</div></div>
-        <div class="stat-card"><div class="stat-num">$12<span>k</span></div><div class="stat-label">Avg. new revenue</div></div>
+        <div class="stat"><div class="stat-n">1.3<span>×</span></div><div class="stat-l">New clients/month</div></div>
+        <div class="stat"><div class="stat-n">4.2<span>h</span></div><div class="stat-l">Saved per week</div></div>
+        <div class="stat"><div class="stat-n">38<span>%</span></div><div class="stat-l">Reply rate avg.</div></div>
+        <div class="stat"><div class="stat-n">$12<span>k</span></div><div class="stat-l">Avg. new revenue</div></div>
       </div>
-      <div class="mini-lead" style="animation-delay:.1s"><div class="lead-av" style="background:#6366f1">SC</div><div class="lead-info"><div class="lead-name">Sarah Chen — UX Lead</div><div class="lead-role">Fintech startup · Series A</div></div><div class="lead-score">94</div></div>
-      <div class="mini-lead" style="animation-delay:.3s"><div class="lead-av" style="background:#f5a623">MR</div><div class="lead-info"><div class="lead-name">Marcus Reed — Founder</div><div class="lead-role">E-commerce brand · 50k/mo</div></div><div class="lead-score">87</div></div>
-      <div class="mini-lead" style="animation-delay:.5s"><div class="lead-av" style="background:#00c896">AL</div><div class="lead-info"><div class="lead-name">Amira Levin — CMO</div><div class="lead-role">SaaS company · 200 employees</div></div><div class="lead-score">79</div></div>
+      <div class="mini-lead"><div class="av" style="background:#6366f1">SC</div><div style="flex:1"><div class="ln">Sarah Chen — UX Lead</div><div class="lr">Fintech startup · Series A</div></div><div class="lscore">94</div></div>
+      <div class="mini-lead"><div class="av" style="background:#f5a623">MR</div><div style="flex:1"><div class="ln">Marcus Reed — Founder</div><div class="lr">E-commerce · 50k/mo</div></div><div class="lscore">87</div></div>
+      <div class="mini-lead"><div class="av" style="background:#00c896">AL</div><div style="flex:1"><div class="ln">Amira Levin — CMO</div><div class="lr">SaaS · 200 employees</div></div><div class="lscore">79</div></div>
     </div>
   </div>
 
-  <!-- FEATURES -->
   <div class="features" id="features">
-    <div class="feature"><span class="feature-icon">🎯</span><div class="feature-title">AI Lead Finder</div><p class="feature-desc">Describe your ideal client and we'll surface hundreds of qualified prospects — scored and ranked by fit so you always contact the right people first.</p></div>
-    <div class="feature"><span class="feature-icon">✍️</span><div class="feature-title">Personalized Outreach</div><p class="feature-desc">Our AI reads each prospect's profile and writes bespoke cold emails and DMs that don't sound like templates. Reply rates 3× industry average.</p></div>
-    <div class="feature"><span class="feature-icon">📊</span><div class="feature-title">Deal Pipeline CRM</div><p class="feature-desc">Track every lead from cold to closed in a visual kanban board. Automated follow-up reminders ensure no warm prospect ever goes cold again.</p></div>
+    <div class="feature"><span class="fi">🎯</span><div class="ft">AI Lead Finder</div><p class="fd">Describe your ideal client and surface hundreds of qualified prospects — scored and ranked by fit so you always contact the right people first.</p></div>
+    <div class="feature"><span class="fi">✍️</span><div class="ft">Personalised Outreach</div><p class="fd">Our AI reads each prospect's profile and writes bespoke cold emails and DMs. Reply rates 3× industry average.</p></div>
+    <div class="feature"><span class="fi">📊</span><div class="ft">Deal Pipeline CRM</div><p class="fd">Track every lead from cold to closed in a visual kanban. Automated follow-up reminders so no warm prospect goes cold.</p></div>
   </div>
 
-  <!-- HOW IT WORKS -->
-  <div class="how-section" id="how">
-    <div class="section-label">How it works</div>
-    <div class="section-title">From zero to booked calls in minutes.</div>
-    <div class="steps-grid">
-      <div class="step"><div class="step-num">01</div><div class="step-title">Describe your ideal client</div><p class="step-desc">Tell ProspectPilot your niche, location, company size, and the problem you solve. Takes 60 seconds.</p></div>
-      <div class="step"><div class="step-num">02</div><div class="step-title">AI finds your leads</div><p class="step-desc">We scan the web and surface qualified prospects ranked by fit score. You see exactly why each lead matches.</p></div>
-      <div class="step"><div class="step-num">03</div><div class="step-title">Generate personalized messages</div><p class="step-desc">One click generates a bespoke cold email or DM for each lead. Edit, approve, and send in seconds.</p></div>
-      <div class="step"><div class="step-num">04</div><div class="step-title">Track and close deals</div><p class="step-desc">Your pipeline CRM tracks every conversation. Follow-up reminders keep you top of mind until they say yes.</p></div>
+  <div class="sec" id="how">
+    <div class="sec-label">How it works</div>
+    <div class="sec-title">From zero to booked calls in minutes.</div>
+    <div class="steps">
+      <div class="step"><div class="step-n">01</div><div class="step-t">Describe your ideal client</div><p class="step-d">Tell ProspectPilot your niche, location, and the problem you solve. Takes 60 seconds.</p></div>
+      <div class="step"><div class="step-n">02</div><div class="step-t">AI finds your leads</div><p class="step-d">We surface qualified prospects ranked by fit score. You see exactly why each lead matches.</p></div>
+      <div class="step"><div class="step-n">03</div><div class="step-t">Generate personalised messages</div><p class="step-d">One click generates a bespoke cold email or DM. Edit, approve, and send in seconds.</p></div>
+      <div class="step"><div class="step-n">04</div><div class="step-t">Track and close deals</div><p class="step-d">Your pipeline CRM tracks every conversation. Follow-up reminders keep you top of mind.</p></div>
     </div>
   </div>
 
-  <!-- TESTIMONIALS -->
-  <div class="testimonials">
-    <div class="section-label">Testimonials</div>
-    <div class="section-title">Freelancers who found their next client with ProspectPilot.</div>
+  <div class="testi-sec">
+    <div class="sec-label">Testimonials</div>
+    <div class="sec-title">Freelancers who found their next client.</div>
     <div class="testi-grid">
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">I landed a $4,200/month retainer within 3 weeks of using ProspectPilot. The personalized outreach is genuinely scary good — my client thought I'd researched them for hours.</p><div class="testi-author"><div class="testi-av" style="background:#6366f1">JD</div><div><div class="testi-name">James Donovan</div><div class="testi-role">Freelance Web Designer</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">The feast-or-famine cycle is over for me. ProspectPilot keeps my pipeline full automatically. I went from 2 clients to 7 in two months without working extra hours.</p><div class="testi-author"><div class="testi-av" style="background:#f5a623">SK</div><div><div class="testi-name">Sana Khan</div><div class="testi-role">Freelance Copywriter</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">I was skeptical about cold outreach but the reply rates blew me away. 41% on my first batch. The AI somehow makes each message feel genuinely personal.</p><div class="testi-author"><div class="testi-av" style="background:#00c896">TM</div><div><div class="testi-name">Tom Mercer</div><div class="testi-role">Social Media Manager</div></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p class="testi-q">I landed a $4,200/month retainer within 3 weeks. The personalised outreach is genuinely scary good — my client thought I'd researched them for hours.</p><div class="testi-auth"><div class="av" style="background:#6366f1">JD</div><div><div class="testi-name">James Donovan</div><div class="testi-role">Freelance Web Designer</div></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p class="testi-q">The feast-or-famine cycle is over for me. I went from 2 clients to 7 in two months without working extra hours.</p><div class="testi-auth"><div class="av" style="background:#f5a623">SK</div><div><div class="testi-name">Sana Khan</div><div class="testi-role">Freelance Copywriter</div></div></div></div>
+      <div class="testi"><div class="stars">★★★★★</div><p class="testi-q">41% reply rate on my first batch. The AI somehow makes each message feel genuinely personal, not templated at all.</p><div class="testi-auth"><div class="av" style="background:#00c896">TM</div><div><div class="testi-name">Tom Mercer</div><div class="testi-role">Social Media Manager</div></div></div></div>
     </div>
   </div>
 
-  <!-- PRICING -->
-  <div class="pricing-section" id="pricing">
-    <div class="section-label">Pricing</div>
-    <div class="section-title">Simple pricing. Cancel anytime.</div>
+  <div class="sec" id="pricing">
+    <div class="sec-label">Pricing</div>
+    <div class="sec-title">Simple pricing. Cancel anytime.</div>
     <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-name">Starter</div>
-        <div class="price-amount">$29</div>
-        <div class="price-period">/ month · billed monthly</div>
-        <ul class="price-features">
-          <li>50 leads per month</li>
-          <li>Basic email templates</li>
-          <li>Lead score & ranking</li>
-          <li>Simple pipeline view</li>
-          <li>Email support</li>
-        </ul>
-        <button class="price-cta" onclick="launchApp()">Start Free Trial</button>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-name">Pro</div>
-        <div class="price-amount">$59</div>
-        <div class="price-period">/ month · billed monthly</div>
-        <ul class="price-features">
-          <li>200 leads per month</li>
-          <li>AI personalization engine</li>
-          <li>Full CRM + follow-ups</li>
-          <li>Email + LinkedIn + DM</li>
-          <li>Analytics dashboard</li>
-        </ul>
-        <button class="price-cta" onclick="launchApp()">Start Free Trial</button>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Agency</div>
-        <div class="price-amount">$149</div>
-        <div class="price-period">/ month · billed monthly</div>
-        <ul class="price-features">
-          <li>Unlimited leads</li>
-          <li>5 team seats</li>
-          <li>White-label reports</li>
-          <li>API access</li>
-          <li>Priority support</li>
-        </ul>
-        <button class="price-cta" onclick="launchApp()">Start Free Trial</button>
-      </div>
+      <div class="pc"><div class="pname">Starter</div><div class="price">$29</div><div class="pper">/ month</div><ul class="pf"><li>50 leads per month</li><li>Basic email templates</li><li>Lead score & ranking</li><li>Simple pipeline view</li><li>Email support</li></ul><button class="pcta" onclick="launchApp()">Start Free Trial</button></div>
+      <div class="pc hot"><div class="pbadge">Most Popular</div><div class="pname">Pro</div><div class="price">$59</div><div class="pper">/ month</div><ul class="pf"><li>200 leads per month</li><li>AI personalisation engine</li><li>Full CRM + follow-ups</li><li>Email + LinkedIn + DM</li><li>Analytics dashboard</li></ul><button class="pcta" onclick="launchApp()">Start Free Trial</button></div>
+      <div class="pc"><div class="pname">Agency</div><div class="price">$149</div><div class="pper">/ month</div><ul class="pf"><li>Unlimited leads</li><li>5 team seats</li><li>White-label reports</li><li>API access</li><li>Priority support</li></ul><button class="pcta" onclick="launchApp()">Start Free Trial</button></div>
     </div>
   </div>
 
-  <!-- FAQ -->
-  <div class="faq-section" id="faq">
-    <div class="section-label">FAQ</div>
-    <div class="section-title">Common questions answered.</div>
+  <div class="sec" id="faq">
+    <div class="sec-label">FAQ</div>
+    <div class="sec-title">Common questions answered.</div>
     <div class="faq-grid">
-      <div class="faq-item"><div class="faq-q">Is there really no credit card needed?</div><p class="faq-a">Correct. Your 14-day free trial starts instantly with no payment details required. We only ask for billing info if you choose to continue after the trial.</p></div>
-      <div class="faq-item"><div class="faq-q">How does the AI personalization work?</div><p class="faq-a">Our AI analyzes each prospect's public profile, company, role, and recent activity to craft a message that references specifics about them — not a generic template.</p></div>
-      <div class="faq-item"><div class="faq-q">What kinds of freelancers is this for?</div><p class="faq-a">ProspectPilot works for any service-based freelancer or agency — web designers, copywriters, social media managers, developers, consultants, and more.</p></div>
-      <div class="faq-item"><div class="faq-q">Can I cancel anytime?</div><p class="faq-a">Yes, absolutely. No contracts, no cancellation fees. Cancel from your account settings in one click and you won't be billed again.</p></div>
-      <div class="faq-item"><div class="faq-q">Where do the leads come from?</div><p class="faq-a">We aggregate data from LinkedIn, company websites, and public business directories to surface qualified, up-to-date prospects that match your ideal client profile.</p></div>
-      <div class="faq-item"><div class="faq-q">Is cold outreach legal?</div><p class="faq-a">Yes. B2B cold outreach is legal under CAN-SPAM and GDPR when done correctly. ProspectPilot follows all best practices and includes unsubscribe options automatically.</p></div>
+      <div class="faq"><div class="faq-q">Is there really no credit card needed?</div><p class="faq-a">Correct. Your 14-day free trial starts instantly with no payment details required.</p></div>
+      <div class="faq"><div class="faq-q">How does the AI personalisation work?</div><p class="faq-a">Our AI analyses each prospect's profile, role, and recent activity to craft a specific message — not a template.</p></div>
+      <div class="faq"><div class="faq-q">What kinds of freelancers is this for?</div><p class="faq-a">Any service-based freelancer — web designers, copywriters, social media managers, developers, consultants.</p></div>
+      <div class="faq"><div class="faq-q">Can I cancel anytime?</div><p class="faq-a">Yes. No contracts, no fees. Cancel from settings in one click and you won't be billed again.</p></div>
+      <div class="faq"><div class="faq-q">Where do the leads come from?</div><p class="faq-a">We aggregate from LinkedIn, company websites, and public directories to surface qualified, up-to-date prospects.</p></div>
+      <div class="faq"><div class="faq-q">Is cold outreach legal?</div><p class="faq-a">Yes. B2B cold outreach is legal under CAN-SPAM and GDPR when done correctly. ProspectPilot follows all best practices.</p></div>
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer id="contact">
-    <div class="contact-bar">
-      <div class="contact-bar-text">Got a question? We reply within <span>2 business hours.</span></div>
-      <a href="mailto:hello@prospectpilot.app" class="contact-bar-email">✉ hello@prospectpilot.app</a>
+    <div class="cb">
+      <div class="cb-text">Got a question? We reply within <span>2 business hours.</span></div>
+      <a href="mailto:hello@prospectpilot.app" class="cb-email">✉ hello@prospectpilot.app</a>
     </div>
     <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo"><div class="logo-dot"></div>ProspectPilot</a>
+      <div class="fb">
+        <a href="#" class="logo" style="color:var(--paper)"><div class="dot"></div>ProspectPilot</a>
         <p>AI-powered client outreach for freelancers and agencies. Find leads, write outreach, close deals — all in one place.</p>
-        <div class="social-links">
-          <a href="#" class="social-link" title="Twitter/X">𝕏</a>
-          <a href="#" class="social-link" title="LinkedIn">in</a>
-          <a href="#" class="social-link" title="Instagram">▲</a>
-          <a href="#" class="social-link" title="YouTube">▶</a>
+        <div class="socials">
+          <a href="#" class="soc">𝕏</a>
+          <a href="#" class="soc">in</a>
+          <a href="#" class="soc">▲</a>
+          <a href="#" class="soc">♪</a>
         </div>
       </div>
-      <div>
-        <div class="footer-col-title">Product</div>
-        <ul class="footer-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#" onclick="launchApp()">Dashboard</a></li>
-          <li><a href="#">Changelog</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <ul class="footer-links">
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#">Press kit</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Support</div>
-        <ul class="footer-links">
-          <li><a href="#">Help centre</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#">Status page</a></li>
-          <li><a href="mailto:hello@prospectpilot.app">Email support</a></li>
-        </ul>
-      </div>
+      <div><div class="fc-title">Product</div><ul class="fl-footer"><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#how">How it works</a></li><li><a href="#" onclick="launchApp()">Dashboard</a></li><li><a href="#">Changelog</a></li></ul></div>
+      <div><div class="fc-title">Company</div><ul class="fl-footer"><li><a href="#">About us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#contact">Contact</a></li><li><a href="#">Press kit</a></li></ul></div>
+      <div><div class="fc-title">Support</div><ul class="fl-footer"><li><a href="#">Help centre</a></li><li><a href="#">Documentation</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Status page</a></li><li><a href="mailto:hello@prospectpilot.app">Email support</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 ProspectPilot. All rights reserved.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">GDPR</a>
-      </div>
+      <div class="fbl"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
     </div>
   </footer>
 </div>
 
-<!-- ========== APP ========== -->
+<!-- ═══════ APP ═══════ -->
 <div id="app">
-  <div class="app-layout">
+  <div class="app-wrap">
     <aside class="sidebar">
-      <div class="sidebar-logo"><div class="logo-dot"></div>ProspectPilot</div>
-      <div class="sidebar-section">Main</div>
-      <ul class="sidebar-nav">
-        <li><a onclick="showPage('dashboard')" id="nav-dashboard" class="active"><span class="nav-icon">◈</span>Dashboard</a></li>
-        <li><a onclick="showPage('leads')" id="nav-leads"><span class="nav-icon">◎</span>Lead Finder</a></li>
-        <li><a onclick="showPage('outreach')" id="nav-outreach"><span class="nav-icon">✦</span>AI Outreach</a></li>
-        <li><a onclick="showPage('crm')" id="nav-crm"><span class="nav-icon">⊞</span>Pipeline CRM</a></li>
+      <div class="sb-logo"><div class="dot"></div>ProspectPilot</div>
+      <div class="sb-sec">Main</div>
+      <ul class="sb-nav">
+        <li><a onclick="go('dashboard')" id="n-dashboard" class="on"><span class="ni">◈</span>Dashboard</a></li>
+        <li><a onclick="go('leads')" id="n-leads"><span class="ni">◎</span>Lead Finder</a></li>
+        <li><a onclick="go('outreach')" id="n-outreach"><span class="ni">✦</span>AI Outreach</a></li>
+        <li><a onclick="go('crm')" id="n-crm"><span class="ni">⊞</span>Pipeline CRM</a></li>
       </ul>
-      <div class="sidebar-section">Account</div>
-      <ul class="sidebar-nav">
-        <li><a onclick="showPage('settings')" id="nav-settings"><span class="nav-icon">⚙</span>Settings</a></li>
-        <li><a onclick="exitApp()"><span class="nav-icon">←</span>Back to site</a></li>
+      <div class="sb-sec">Account</div>
+      <ul class="sb-nav">
+        <li><a onclick="go('settings')" id="n-settings"><span class="ni">⚙</span>Settings</a></li>
+        <li><a onclick="exitApp()"><span class="ni">←</span>Back to site</a></li>
       </ul>
-      <div class="sidebar-bottom">
-        <div class="user-pill">
-          <div class="user-avatar">JD</div>
-          <div><div class="user-name">Jamie Doe</div><div class="user-plan">Pro · 143/200 leads</div></div>
+      <div class="sb-bottom">
+        <div class="upill">
+          <div class="uav">JD</div>
+          <div><div class="uname">Jamie Doe</div><div class="uplan">Pro · 143/200 leads</div></div>
         </div>
       </div>
     </aside>
 
-    <div class="main-content">
+    <div class="main-wrap">
       <div class="topbar">
-        <div class="page-title" id="topbar-title">Dashboard</div>
-        <div class="topbar-actions">
-          <span style="font-size:13px;color:var(--muted)">57 leads remaining</span>
+        <div class="page-title" id="ptitle">Dashboard</div>
+        <div class="tb-right">
+          <span class="tb-note">57 leads remaining</span>
           <span class="badge">Pro</span>
-          <button class="btn-primary" onclick="showPage('leads')">+ Find Leads</button>
+          <button class="btn-primary" onclick="go('leads')">+ Find Leads</button>
         </div>
       </div>
 
       <!-- DASHBOARD -->
-      <div class="page active" id="page-dashboard">
+      <div class="page on" id="p-dashboard">
         <div class="kpi-grid">
-          <div class="kpi-card"><div class="kpi-label">Total Leads</div><div class="kpi-value">247</div><div class="kpi-change up">↑ 18 this week</div></div>
-          <div class="kpi-card"><div class="kpi-label">Emails Sent</div><div class="kpi-value">189</div><div class="kpi-change up">↑ 34% reply rate</div></div>
-          <div class="kpi-card"><div class="kpi-label">Active Deals</div><div class="kpi-value">14</div><div class="kpi-change up">↑ 3 new this week</div></div>
-          <div class="kpi-card"><div class="kpi-label">Revenue Pipeline</div><div class="kpi-value">$42k</div><div class="kpi-change up">↑ $8k from last mo</div></div>
+          <div class="kpi"><div class="kpi-l">Total Leads</div><div class="kpi-v">247</div><div class="kpi-c">↑ 18 this week</div></div>
+          <div class="kpi"><div class="kpi-l">Emails Sent</div><div class="kpi-v">189</div><div class="kpi-c">↑ 34% reply rate</div></div>
+          <div class="kpi"><div class="kpi-l">Active Deals</div><div class="kpi-v">14</div><div class="kpi-c">↑ 3 new this week</div></div>
+          <div class="kpi"><div class="kpi-l">Revenue Pipeline</div><div class="kpi-v">$42k</div><div class="kpi-c">↑ $8k from last mo</div></div>
         </div>
-        <div class="dashboard-grid">
+        <div class="dash-grid">
           <div class="card">
-            <div class="card-header"><div class="card-title">Recent Activity</div><button class="card-action" onclick="showPage('crm')">View all →</button></div>
-            <div class="activity-item"><div class="activity-dot" style="background:var(--accent2)"></div><div><div class="activity-text"><span class="activity-bold">Sarah Chen</span> replied to your cold email — interested in a call</div><div class="activity-time">2 hours ago</div></div></div>
-            <div class="activity-item"><div class="activity-dot" style="background:#6366f1"></div><div><div class="activity-text">AI generated 12 personalized messages for <span class="activity-bold">E-commerce batch</span></div><div class="activity-time">5 hours ago</div></div></div>
-            <div class="activity-item"><div class="activity-dot" style="background:#f5a623"></div><div><div class="activity-text"><span class="activity-bold">Marcus Reed</span> opened your email 3 times — follow up recommended</div><div class="activity-time">Yesterday</div></div></div>
-            <div class="activity-item"><div class="activity-dot" style="background:var(--accent)"></div><div><div class="activity-text"><span class="activity-bold">Deal closed</span> with Linden Agency — $4,200/mo retainer 🎉</div><div class="activity-time">2 days ago</div></div></div>
-            <div class="activity-item"><div class="activity-dot" style="background:var(--accent2)"></div><div><div class="activity-text">Lead Finder discovered <span class="activity-bold">28 new prospects</span> in the SaaS niche</div><div class="activity-time">3 days ago</div></div></div>
+            <div class="ch"><div class="ct">Recent Activity</div><button class="ca" onclick="go('crm')">View all →</button></div>
+            <div class="act-item"><div class="adot" style="background:var(--accent2)"></div><div><div class="atxt"><span class="ab">Sarah Chen</span> replied to your cold email — interested in a call</div><div class="atime">2 hours ago</div></div></div>
+            <div class="act-item"><div class="adot" style="background:#6366f1"></div><div><div class="atxt">AI generated 12 personalised messages for <span class="ab">E-commerce batch</span></div><div class="atime">5 hours ago</div></div></div>
+            <div class="act-item"><div class="adot" style="background:#f5a623"></div><div><div class="atxt"><span class="ab">Marcus Reed</span> opened your email 3× — follow up recommended</div><div class="atime">Yesterday</div></div></div>
+            <div class="act-item"><div class="adot" style="background:var(--accent)"></div><div><div class="atxt"><span class="ab">Deal closed</span> with Linden Agency — $4,200/mo retainer 🎉</div><div class="atime">2 days ago</div></div></div>
+            <div class="act-item"><div class="adot" style="background:var(--accent2)"></div><div><div class="atxt">Lead Finder discovered <span class="ab">28 new prospects</span> in SaaS niche</div><div class="atime">3 days ago</div></div></div>
           </div>
           <div class="card">
-            <div class="card-header"><div class="card-title">Hot Pipeline</div><button class="card-action" onclick="showPage('crm')">Open CRM →</button></div>
-            <div class="pipeline-item"><div><div class="pipeline-stage">Replied</div><div class="pipeline-name">Sarah Chen · Fintech</div></div><div class="pipeline-value">$3.5k</div></div>
-            <div class="pipeline-item"><div><div class="pipeline-stage">Negotiating</div><div class="pipeline-name">BlueSky Agency</div></div><div class="pipeline-value">$8k</div></div>
-            <div class="pipeline-item"><div><div class="pipeline-stage">Contacted</div><div class="pipeline-name">Marcus Reed · Ecom</div></div><div class="pipeline-value">$2k</div></div>
-            <div class="pipeline-item"><div><div class="pipeline-stage">Proposal sent</div><div class="pipeline-name">TechFlow Inc.</div></div><div class="pipeline-value">$6k</div></div>
-            <div class="pipeline-item"><div><div class="pipeline-stage">New lead</div><div class="pipeline-name">Priya Nair · Appify</div></div><div class="pipeline-value">$4.5k</div></div>
+            <div class="ch"><div class="ct">Hot Pipeline</div><button class="ca" onclick="go('crm')">Open CRM →</button></div>
+            <div class="pi-item"><div><div class="pi-s">Replied</div><div class="pi-n">Sarah Chen · Fintech</div></div><div class="pi-v">$3.5k</div></div>
+            <div class="pi-item"><div><div class="pi-s">Negotiating</div><div class="pi-n">BlueSky Agency</div></div><div class="pi-v">$8k</div></div>
+            <div class="pi-item"><div><div class="pi-s">Contacted</div><div class="pi-n">Marcus Reed · Ecom</div></div><div class="pi-v">$2k</div></div>
+            <div class="pi-item"><div><div class="pi-s">Proposal sent</div><div class="pi-n">TechFlow Inc.</div></div><div class="pi-v">$6k</div></div>
+            <div class="pi-item"><div><div class="pi-s">New lead</div><div class="pi-n">Priya Nair · Appify</div></div><div class="pi-v">$4.5k</div></div>
           </div>
         </div>
       </div>
 
       <!-- LEADS -->
-      <div class="page" id="page-leads">
-        <div class="leads-controls">
-          <input class="search-input" placeholder="🔍  Search leads by name, company, role..." oninput="filterLeads(this.value)">
-          <select class="select-input" onchange="filterByStatus(this.value)">
+      <div class="page" id="p-leads">
+        <div class="lc">
+          <input class="si" placeholder="🔍  Search by name, company, role..." oninput="filterLeads(this.value)">
+          <select class="sel" onchange="filterByStatus(this.value)">
             <option value="">All Statuses</option>
             <option value="new">New</option>
             <option value="contacted">Contacted</option>
             <option value="replied">Replied</option>
           </select>
-          <select class="select-input">
-            <option>All Niches</option>
-            <option>SaaS / Tech</option>
-            <option>E-commerce</option>
-            <option>Agency</option>
-            <option>Fintech</option>
-          </select>
-          <button class="btn-primary" onclick="generateLeads()">✦ Generate New Leads</button>
+          <select class="sel"><option>All Niches</option><option>SaaS / Tech</option><option>E-commerce</option><option>Agency</option><option>Fintech</option></select>
+          <button class="btn-primary" onclick="genLeads()">✦ Generate New Leads</button>
         </div>
         <div class="card" style="padding:0;overflow:hidden">
-          <table class="leads-table">
-            <thead><tr><th>Contact</th><th>Role / Company</th><th>Niche</th><th>Fit Score</th><th>Status</th><th>Action</th></tr></thead>
-            <tbody id="leads-tbody"></tbody>
-          </table>
+          <table><thead><tr><th>Contact</th><th>Role / Company</th><th>Niche</th><th>Fit Score</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="ltbody"></tbody></table>
         </div>
       </div>
 
       <!-- OUTREACH -->
-      <div class="page" id="page-outreach">
-        <div class="template-tabs">
-          <button class="tab-btn active" onclick="switchTab(this,'email')">Cold Email</button>
-          <button class="tab-btn" onclick="switchTab(this,'linkedin')">LinkedIn DM</button>
-          <button class="tab-btn" onclick="switchTab(this,'twitter')">Twitter/X DM</button>
-          <button class="tab-btn" onclick="switchTab(this,'followup')">Follow-up</button>
+      <div class="page" id="p-outreach">
+        <div class="tabs">
+          <button class="tab on" onclick="switchTab(this,'email')">Cold Email</button>
+          <button class="tab" onclick="switchTab(this,'linkedin')">LinkedIn DM</button>
+          <button class="tab" onclick="switchTab(this,'twitter')">Twitter/X DM</button>
+          <button class="tab" onclick="switchTab(this,'followup')">Follow-up</button>
         </div>
-        <div class="outreach-layout">
+        <div class="out-grid">
           <div class="card">
-            <div class="card-header"><div class="card-title">Target & Context</div></div>
-            <div class="form-group"><label class="form-label">Lead Name</label><input class="form-input" id="lead-name-input" placeholder="e.g. Sarah Chen" value="Sarah Chen"></div>
-            <div class="form-group"><label class="form-label">Their Role & Company</label><input class="form-input" id="lead-role-input" placeholder="e.g. UX Lead at NovaPay" value="UX Lead at NovaPay (fintech startup)"></div>
-            <div class="form-group"><label class="form-label">Your Service</label><input class="form-input" id="service-input" placeholder="e.g. Brand strategy & design" value="Conversion-focused UX design"></div>
-            <div class="form-group"><label class="form-label">Key Hook / Angle</label><textarea class="form-input" id="hook-input">They recently raised a $12M Series A and are scaling their checkout flow. I improved checkout conversion by 31% for a similar fintech client.</textarea></div>
-            <button class="btn-primary" style="width:100%;padding:14px;font-size:14px" onclick="generateOutreach()">✦ Generate with AI</button>
+            <div class="ch"><div class="ct">Target & Context</div></div>
+            <div class="fg"><label class="fl-label">Lead Name</label><input class="fi-input" id="in-name" value="Sarah Chen"></div>
+            <div class="fg"><label class="fl-label">Their Role & Company</label><input class="fi-input" id="in-role" value="UX Lead at NovaPay (fintech startup)"></div>
+            <div class="fg"><label class="fl-label">Your Service</label><input class="fi-input" id="in-svc" value="Conversion-focused UX design"></div>
+            <div class="fg"><label class="fl-label">Key Hook / Angle</label><textarea class="fi-input" id="in-hook">They recently raised a $12M Series A and are scaling their checkout flow. I improved checkout conversion by 31% for a similar fintech client.</textarea></div>
+            <button class="btn-primary" style="width:100%;padding:14px;font-size:14px" onclick="genOutreach()">✦ Generate with AI</button>
           </div>
-          <div>
-            <div class="card-title" style="margin-bottom:14px">AI-Generated Message</div>
-            <div class="ai-output" id="ai-output">
-              <div class="ai-output-label">Output</div>
-              <div style="color:rgba(245,240,232,.3);font-size:13px">Fill in the form and click "Generate with AI" to create a personalized outreach message →</div>
+          <div style="min-width:0">
+            <div class="ct" style="margin-bottom:14px">AI-Generated Message</div>
+            <div class="ai-box" id="ai-box">
+              <div class="ai-label">Output</div>
+              <span style="color:rgba(245,240,232,.3);font-size:13px">Fill in the form and click Generate →</span>
             </div>
-            <div class="output-actions" id="output-actions" style="display:none">
-              <button class="action-btn primary" onclick="showToast('✅ Copied to clipboard!')">Copy Message</button>
-              <button class="action-btn" onclick="showToast('📬 Added to send queue!')">Add to Queue</button>
-              <button class="action-btn" onclick="generateOutreach()">Regenerate</button>
+            <div class="out-actions" id="out-acts" style="display:none">
+              <button class="abtn p" onclick="showToast('✅ Copied to clipboard!')">Copy Message</button>
+              <button class="abtn" onclick="showToast('📬 Added to queue!')">Add to Queue</button>
+              <button class="abtn" onclick="genOutreach()">Regenerate</button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- CRM -->
-      <div class="page" id="page-crm">
+      <div class="page" id="p-crm">
         <div class="kanban">
-          <div class="kanban-col kanban-col-new">
-            <div class="kanban-col-header"><div class="kanban-col-title">New Leads</div><div class="kanban-count">5</div></div>
-            <div class="kanban-card"><div class="kanban-card-name">Priya Nair</div><div class="kanban-card-role">Head of Growth · Appify</div><div class="kanban-card-meta"><div class="kanban-value">$4.5k</div><div class="kanban-days">Score: 91</div></div></div>
-            <div class="kanban-card"><div class="kanban-card-name">James Wolfe</div><div class="kanban-card-role">Founder · RetailEdge</div><div class="kanban-card-meta"><div class="kanban-value">$2k</div><div class="kanban-days">Score: 74</div></div></div>
-            <div class="kanban-card"><div class="kanban-card-name">Tina Okafor</div><div class="kanban-card-role">CEO · GrowthBloom</div><div class="kanban-card-meta"><div class="kanban-value">$6k</div><div class="kanban-days">Score: 88</div></div></div>
+          <div class="col-new">
+            <div class="kc-hd"><div class="kc-t">New Leads</div><div class="kc-n">5</div></div>
+            <div class="kk"><div class="kk-name">Priya Nair</div><div class="kk-role">Head of Growth · Appify</div><div class="kk-foot"><div class="kk-v">$4.5k</div><div class="kk-d">Score: 91</div></div></div>
+            <div class="kk"><div class="kk-name">James Wolfe</div><div class="kk-role">Founder · RetailEdge</div><div class="kk-foot"><div class="kk-v">$2k</div><div class="kk-d">Score: 74</div></div></div>
+            <div class="kk"><div class="kk-name">Tina Okafor</div><div class="kk-role">CEO · GrowthBloom</div><div class="kk-foot"><div class="kk-v">$6k</div><div class="kk-d">Score: 88</div></div></div>
           </div>
-          <div class="kanban-col kanban-col-contacted">
-            <div class="kanban-col-header"><div class="kanban-col-title">Contacted</div><div class="kanban-count">4</div></div>
-            <div class="kanban-card"><div class="kanban-card-name">Marcus Reed</div><div class="kanban-card-role">Founder · BoldBrew Ecom</div><div class="kanban-card-meta"><div class="kanban-value">$2k</div><div class="kanban-days">3 days ago</div></div></div>
-            <div class="kanban-card"><div class="kanban-card-name">Laura Simmons</div><div class="kanban-card-role">VP Marketing · Nexio</div><div class="kanban-card-meta"><div class="kanban-value">$5k</div><div class="kanban-days">5 days ago</div></div></div>
+          <div class="col-contacted">
+            <div class="kc-hd"><div class="kc-t">Contacted</div><div class="kc-n">4</div></div>
+            <div class="kk"><div class="kk-name">Marcus Reed</div><div class="kk-role">Founder · BoldBrew Ecom</div><div class="kk-foot"><div class="kk-v">$2k</div><div class="kk-d">3 days ago</div></div></div>
+            <div class="kk"><div class="kk-name">Laura Simmons</div><div class="kk-role">VP Marketing · Nexio</div><div class="kk-foot"><div class="kk-v">$5k</div><div class="kk-d">5 days ago</div></div></div>
           </div>
-          <div class="kanban-col kanban-col-replied">
-            <div class="kanban-col-header"><div class="kanban-col-title">Replied</div><div class="kanban-count">3</div></div>
-            <div class="kanban-card" style="border-color:#6366f1"><div class="kanban-card-name">Sarah Chen</div><div class="kanban-card-role">UX Lead · NovaPay</div><div class="kanban-card-meta"><div class="kanban-value">$3.5k</div><div class="kanban-days">🔥 Hot lead</div></div></div>
-            <div class="kanban-card"><div class="kanban-card-name">Derek Young</div><div class="kanban-card-role">CTO · StellarAI</div><div class="kanban-card-meta"><div class="kanban-value">$8k</div><div class="kanban-days">2 days ago</div></div></div>
+          <div class="col-replied">
+            <div class="kc-hd"><div class="kc-t">Replied</div><div class="kc-n">3</div></div>
+            <div class="kk" style="border-color:#6366f1"><div class="kk-name">Sarah Chen</div><div class="kk-role">UX Lead · NovaPay</div><div class="kk-foot"><div class="kk-v">$3.5k</div><div class="kk-d">🔥 Hot lead</div></div></div>
+            <div class="kk"><div class="kk-name">Derek Young</div><div class="kk-role">CTO · StellarAI</div><div class="kk-foot"><div class="kk-v">$8k</div><div class="kk-d">2 days ago</div></div></div>
           </div>
-          <div class="kanban-col kanban-col-closed">
-            <div class="kanban-col-header"><div class="kanban-col-title">Closed Won</div><div class="kanban-count">2</div></div>
-            <div class="kanban-card" style="border-color:var(--accent2)"><div class="kanban-card-name">Linden Agency</div><div class="kanban-card-role">Agency · Full retainer</div><div class="kanban-card-meta"><div class="kanban-value" style="color:var(--accent2)">$4.2k/mo</div><div class="kanban-days">✓ Won</div></div></div>
-            <div class="kanban-card" style="border-color:var(--accent2)"><div class="kanban-card-name">Peak Performance Co.</div><div class="kanban-card-role">Brand · Project deal</div><div class="kanban-card-meta"><div class="kanban-value" style="color:var(--accent2)">$7.5k</div><div class="kanban-days">✓ Won</div></div></div>
+          <div class="col-closed">
+            <div class="kc-hd"><div class="kc-t">Closed Won</div><div class="kc-n">2</div></div>
+            <div class="kk" style="border-color:var(--accent2)"><div class="kk-name">Linden Agency</div><div class="kk-role">Agency · Full retainer</div><div class="kk-foot"><div class="kk-v" style="color:var(--accent2)">$4.2k/mo</div><div class="kk-d">✓ Won</div></div></div>
+            <div class="kk" style="border-color:var(--accent2)"><div class="kk-name">Peak Performance Co.</div><div class="kk-role">Brand · Project deal</div><div class="kk-foot"><div class="kk-v" style="color:var(--accent2)">$7.5k</div><div class="kk-d">✓ Won</div></div></div>
           </div>
         </div>
       </div>
 
       <!-- SETTINGS -->
-      <div class="page" id="page-settings">
-        <div class="settings-grid">
-          <div class="settings-nav">
-            <div class="settings-nav-item active" onclick="showSettingsPanel('profile')">👤 &nbsp;Profile</div>
-            <div class="settings-nav-item" onclick="showSettingsPanel('billing')">💳 &nbsp;Billing & Plan</div>
-            <div class="settings-nav-item" onclick="showSettingsPanel('notifications')">🔔 &nbsp;Notifications</div>
-            <div class="settings-nav-item" onclick="showSettingsPanel('outreach')">✉️ &nbsp;Outreach Settings</div>
-            <div class="settings-nav-item" onclick="showSettingsPanel('integrations')">🔗 &nbsp;Integrations</div>
-            <div class="settings-nav-item" onclick="showSettingsPanel('danger')">⚠️ &nbsp;Danger Zone</div>
+      <div class="page" id="p-settings">
+        <div class="set-grid">
+          <div class="set-nav">
+            <div class="sni on" onclick="setSec(this,'s-profile')">👤 Profile</div>
+            <div class="sni" onclick="setSec(this,'s-billing')">💳 Billing & Plan</div>
+            <div class="sni" onclick="setSec(this,'s-notif')">🔔 Notifications</div>
+            <div class="sni" onclick="setSec(this,'s-outreach-set')">✉️ Outreach Settings</div>
+            <div class="sni" onclick="setSec(this,'s-integrations')">🔗 Integrations</div>
+            <div class="sni" onclick="setSec(this,'s-danger')">⚠️ Danger Zone</div>
           </div>
           <div>
-            <!-- PROFILE -->
-            <div class="settings-panel active" id="sp-profile">
-              <div class="settings-section">
-                <div class="settings-section-title">Profile Information</div>
-                <div class="settings-section-desc">Update your personal details and public profile.</div>
-                <div class="settings-row"><div><div class="settings-row-label">Full Name</div><div class="settings-row-desc">Displayed on your outreach messages</div></div><input class="settings-input" value="Jamie Doe"></div>
-                <div class="settings-row"><div><div class="settings-row-label">Email Address</div><div class="settings-row-desc">Used for login and notifications</div></div><input class="settings-input" value="jamie@example.com"></div>
-                <div class="settings-row"><div><div class="settings-row-label">Job Title</div><div class="settings-row-desc">Shown in your outreach signature</div></div><input class="settings-input" value="Freelance Web Designer"></div>
-                <div class="settings-row"><div><div class="settings-row-label">Website</div><div class="settings-row-desc">Your portfolio or company site</div></div><input class="settings-input" value="https://jamiedoe.com"></div>
+            <div class="sp on" id="s-profile">
+              <div class="ss">
+                <div class="ss-t">Profile Information</div>
+                <div class="ss-d">Update your personal details displayed on outreach messages.</div>
+                <div class="sr"><div><div class="sr-l">Full Name</div><div class="sr-d">Shown in your outreach signature</div></div><input class="si-set" value="Jamie Doe"></div>
+                <div class="sr"><div><div class="sr-l">Email Address</div><div class="sr-d">Used for login and notifications</div></div><input class="si-set" value="jamie@example.com"></div>
+                <div class="sr"><div><div class="sr-l">Job Title</div><div class="sr-d">Shown in your outreach signature</div></div><input class="si-set" value="Freelance Web Designer"></div>
+                <div class="sr"><div><div class="sr-l">Website</div><div class="sr-d">Your portfolio or company site</div></div><input class="si-set" value="https://jamiedoe.com"></div>
               </div>
-              <button class="btn-primary" style="padding:12px 28px" onclick="showToast('✅ Profile saved!')">Save Changes</button>
+              <button class="btn-primary" style="padding:12px 24px" onclick="showToast('✅ Profile saved!')">Save Changes</button>
             </div>
-
-            <!-- BILLING -->
-            <div class="settings-panel" id="sp-billing">
-              <div class="plan-card">
+            <div class="sp" id="s-billing">
+              <div class="plan-box">
                 <div class="plan-name">Pro Plan</div>
-                <div class="plan-price">$59<span style="font-size:16px;color:rgba(245,240,232,.4)">/month</span></div>
-                <div class="plan-desc">Next billing date: March 14, 2026</div>
-                <ul class="plan-features-list">
-                  <li>200 leads per month</li>
-                  <li>AI personalization engine</li>
-                  <li>Full CRM + follow-ups</li>
-                  <li>Email + LinkedIn + DM outreach</li>
-                </ul>
-                <div style="margin-top:20px">
-                  <div class="usage-label"><span>Leads used this month</span><span style="color:var(--accent2)">143 / 200</span></div>
-                  <div class="usage-bar"><div class="usage-fill" style="width:71.5%"></div></div>
-                </div>
+                <div class="plan-price">$59<span style="font-size:15px;color:rgba(245,240,232,.4)">/mo</span></div>
+                <div class="plan-desc">Next billing: March 14, 2026</div>
+                <ul class="pfl"><li>200 leads per month</li><li>AI personalisation engine</li><li>Full CRM + follow-ups</li><li>Email + LinkedIn + DM outreach</li></ul>
+                <div style="margin-top:16px"><div class="ul-row"><span>Leads used</span><span style="color:var(--accent2)">143 / 200</span></div><div class="ub"><div class="uf" style="width:71.5%"></div></div></div>
               </div>
-              <div class="settings-section">
-                <div class="settings-section-title">Plan Management</div>
-                <div class="settings-section-desc">Upgrade for more leads or downgrade at any time.</div>
-                <div class="settings-row"><div><div class="settings-row-label">Upgrade to Agency</div><div class="settings-row-desc">Unlimited leads, 5 seats, white-label — $149/mo</div></div><button class="action-btn primary" onclick="showToast('Redirecting to upgrade...')">Upgrade</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">Switch to Annual</div><div class="settings-row-desc">Save 2 months — pay $590/year instead of $708</div></div><button class="action-btn" onclick="showToast('Redirecting to billing...')">Switch</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">Payment Method</div><div class="settings-row-desc">Visa ending in 4242</div></div><button class="action-btn" onclick="showToast('Redirecting to billing...')">Update</button></div>
+              <div class="ss">
+                <div class="ss-t">Plan Management</div>
+                <div class="ss-d">Upgrade or downgrade at any time.</div>
+                <div class="sr"><div><div class="sr-l">Upgrade to Agency</div><div class="sr-d">Unlimited leads, 5 seats — $149/mo</div></div><button class="abtn p" onclick="showToast('Redirecting to upgrade...')">Upgrade</button></div>
+                <div class="sr"><div><div class="sr-l">Switch to Annual</div><div class="sr-d">Save 2 months — $590/year</div></div><button class="abtn" onclick="showToast('Redirecting...')">Switch</button></div>
+                <div class="sr"><div><div class="sr-l">Payment Method</div><div class="sr-d">Visa ending in 4242</div></div><button class="abtn" onclick="showToast('Redirecting...')">Update</button></div>
               </div>
             </div>
-
-            <!-- NOTIFICATIONS -->
-            <div class="settings-panel" id="sp-notifications">
-              <div class="settings-section">
-                <div class="settings-section-title">Email Notifications</div>
-                <div class="settings-section-desc">Choose what emails you receive from ProspectPilot.</div>
-                <div class="settings-row"><div><div class="settings-row-label">Lead replies</div><div class="settings-row-desc">When a prospect replies to your outreach</div></div><div class="toggle on" onclick="toggleSwitch(this)"></div></div>
-                <div class="settings-row"><div><div class="settings-row-label">Weekly digest</div><div class="settings-row-desc">Summary of your pipeline every Monday</div></div><div class="toggle on" onclick="toggleSwitch(this)"></div></div>
-                <div class="settings-row"><div><div class="settings-row-label">Follow-up reminders</div><div class="settings-row-desc">When a lead hasn't been followed up in 3 days</div></div><div class="toggle on" onclick="toggleSwitch(this)"></div></div>
-                <div class="settings-row"><div><div class="settings-row-label">New lead suggestions</div><div class="settings-row-desc">When AI finds new leads matching your profile</div></div><div class="toggle" onclick="toggleSwitch(this)"></div></div>
-                <div class="settings-row"><div><div class="settings-row-label">Product updates</div><div class="settings-row-desc">New features and improvements</div></div><div class="toggle on" onclick="toggleSwitch(this)"></div></div>
+            <div class="sp" id="s-notif">
+              <div class="ss">
+                <div class="ss-t">Email Notifications</div>
+                <div class="ss-d">Choose what emails you receive.</div>
+                <div class="sr"><div><div class="sr-l">Lead replies</div><div class="sr-d">When a prospect replies to your outreach</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast(this.classList.contains('on')?'✅ Enabled':'Disabled')"></div></div>
+                <div class="sr"><div><div class="sr-l">Weekly digest</div><div class="sr-d">Pipeline summary every Monday</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast(this.classList.contains('on')?'✅ Enabled':'Disabled')"></div></div>
+                <div class="sr"><div><div class="sr-l">Follow-up reminders</div><div class="sr-d">When a lead hasn't been followed up in 3 days</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast(this.classList.contains('on')?'✅ Enabled':'Disabled')"></div></div>
+                <div class="sr"><div><div class="sr-l">New lead suggestions</div><div class="sr-d">When AI finds new matching leads</div></div><div class="toggle" onclick="this.classList.toggle('on');showToast(this.classList.contains('on')?'✅ Enabled':'Disabled')"></div></div>
+                <div class="sr"><div><div class="sr-l">Product updates</div><div class="sr-d">New features and improvements</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast(this.classList.contains('on')?'✅ Enabled':'Disabled')"></div></div>
               </div>
             </div>
-
-            <!-- OUTREACH SETTINGS -->
-            <div class="settings-panel" id="sp-outreach">
-              <div class="settings-section">
-                <div class="settings-section-title">Outreach Preferences</div>
-                <div class="settings-section-desc">Customize how ProspectPilot generates your messages.</div>
-                <div class="settings-row"><div><div class="settings-row-label">Default tone</div><div class="settings-row-desc">How your AI messages sound</div></div><select class="settings-select"><option>Professional</option><option>Friendly</option><option>Direct</option><option>Casual</option></select></div>
-                <div class="settings-row"><div><div class="settings-row-label">Message length</div><div class="settings-row-desc">How long generated messages are</div></div><select class="settings-select"><option>Short (3-4 lines)</option><option selected>Medium (5-7 lines)</option><option>Long (8+ lines)</option></select></div>
-                <div class="settings-row"><div><div class="settings-row-label">Auto follow-up</div><div class="settings-row-desc">Automatically remind you to follow up after 3 days</div></div><div class="toggle on" onclick="toggleSwitch(this)"></div></div>
-                <div class="settings-row"><div><div class="settings-row-label">Email signature</div><div class="settings-row-desc">Appended to all outreach emails</div></div><button class="action-btn" onclick="showToast('Edit signature...')">Edit</button></div>
+            <div class="sp" id="s-outreach-set">
+              <div class="ss">
+                <div class="ss-t">Outreach Preferences</div>
+                <div class="ss-d">Customise how ProspectPilot generates your messages.</div>
+                <div class="sr"><div><div class="sr-l">Default tone</div><div class="sr-d">How your AI messages sound</div></div><select class="sel-set"><option>Professional</option><option>Friendly</option><option>Direct</option><option>Casual</option></select></div>
+                <div class="sr"><div><div class="sr-l">Message length</div><div class="sr-d">How long generated messages are</div></div><select class="sel-set"><option>Short (3-4 lines)</option><option selected>Medium (5-7 lines)</option><option>Long (8+ lines)</option></select></div>
+                <div class="sr"><div><div class="sr-l">Auto follow-up</div><div class="sr-d">Remind you to follow up after 3 days</div></div><div class="toggle on" onclick="this.classList.toggle('on');showToast(this.classList.contains('on')?'✅ Enabled':'Disabled')"></div></div>
+                <div class="sr"><div><div class="sr-l">Email signature</div><div class="sr-d">Appended to all outreach emails</div></div><button class="abtn" onclick="showToast('Opening editor...')">Edit</button></div>
               </div>
-              <button class="btn-primary" style="padding:12px 28px" onclick="showToast('✅ Outreach settings saved!')">Save Changes</button>
+              <button class="btn-primary" style="padding:12px 24px" onclick="showToast('✅ Settings saved!')">Save Changes</button>
             </div>
-
-            <!-- INTEGRATIONS -->
-            <div class="settings-panel" id="sp-integrations">
-              <div class="settings-section">
-                <div class="settings-section-title">Connected Apps</div>
-                <div class="settings-section-desc">Connect ProspectPilot to your existing tools.</div>
-                <div class="settings-row"><div><div class="settings-row-label">Gmail</div><div class="settings-row-desc">Send outreach directly from your Gmail account</div></div><button class="action-btn primary" onclick="showToast('Connecting Gmail...')">Connect</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">LinkedIn</div><div class="settings-row-desc">Send LinkedIn DMs directly from the app</div></div><button class="action-btn" onclick="showToast('Connecting LinkedIn...')">Connect</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">Notion</div><div class="settings-row-desc">Sync your leads and pipeline to Notion</div></div><button class="action-btn" onclick="showToast('Connecting Notion...')">Connect</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">Zapier</div><div class="settings-row-desc">Automate workflows with 3,000+ apps</div></div><button class="action-btn" onclick="showToast('Connecting Zapier...')">Connect</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">Slack</div><div class="settings-row-desc">Get lead reply notifications in Slack</div></div><button class="action-btn" onclick="showToast('Connecting Slack...')">Connect</button></div>
+            <div class="sp" id="s-integrations">
+              <div class="ss">
+                <div class="ss-t">Connected Apps</div>
+                <div class="ss-d">Connect ProspectPilot to your existing tools.</div>
+                <div class="sr"><div><div class="sr-l">Gmail</div><div class="sr-d">Send outreach directly from Gmail</div></div><button class="abtn p" onclick="showToast('Connecting Gmail...')">Connect</button></div>
+                <div class="sr"><div><div class="sr-l">LinkedIn</div><div class="sr-d">Send LinkedIn DMs from the app</div></div><button class="abtn" onclick="showToast('Connecting LinkedIn...')">Connect</button></div>
+                <div class="sr"><div><div class="sr-l">Notion</div><div class="sr-d">Sync leads and pipeline to Notion</div></div><button class="abtn" onclick="showToast('Connecting Notion...')">Connect</button></div>
+                <div class="sr"><div><div class="sr-l">Zapier</div><div class="sr-d">Automate with 3,000+ apps</div></div><button class="abtn" onclick="showToast('Connecting Zapier...')">Connect</button></div>
+                <div class="sr"><div><div class="sr-l">Slack</div><div class="sr-d">Get reply notifications in Slack</div></div><button class="abtn" onclick="showToast('Connecting Slack...')">Connect</button></div>
               </div>
             </div>
-
-            <!-- DANGER ZONE -->
-            <div class="settings-panel" id="sp-danger">
-              <div class="settings-section">
-                <div class="settings-section-title">Data & Privacy</div>
-                <div class="settings-section-desc">Manage your data and account privacy settings.</div>
-                <div class="settings-row"><div><div class="settings-row-label">Export all data</div><div class="settings-row-desc">Download all your leads, messages, and pipeline data as CSV</div></div><button class="action-btn" onclick="showToast('📦 Preparing your export...')">Export</button></div>
-                <div class="settings-row"><div><div class="settings-row-label">Delete all leads</div><div class="settings-row-desc">Permanently remove all leads from your account</div></div><button class="action-btn" onclick="openModal('deleteLeads')">Delete</button></div>
+            <div class="sp" id="s-danger">
+              <div class="ss">
+                <div class="ss-t">Data & Privacy</div>
+                <div class="ss-d">Manage your data and account privacy.</div>
+                <div class="sr"><div><div class="sr-l">Export all data</div><div class="sr-d">Download leads, messages, pipeline as CSV</div></div><button class="abtn" onclick="showToast('📦 Preparing export...')">Export</button></div>
+                <div class="sr"><div><div class="sr-l">Delete all leads</div><div class="sr-d">Permanently remove all leads</div></div><button class="abtn" onclick="openModal('leads')">Delete</button></div>
               </div>
-              <div class="danger-zone">
-                <div class="danger-title">⚠ Danger Zone</div>
-                <div class="danger-desc">These actions are permanent and cannot be undone. Please be absolutely certain before proceeding.</div>
-                <button class="btn-danger" onclick="openModal('deleteAccount')">Delete My Account</button>
+              <div class="danger">
+                <div class="danger-t">⚠ Danger Zone</div>
+                <div class="danger-d">These actions are permanent and cannot be undone.</div>
+                <button class="btn-danger" onclick="openModal('account')">Delete My Account</button>
               </div>
             </div>
           </div>
@@ -772,134 +652,118 @@ textarea.form-input{resize:vertical;min-height:100px;}
   </div>
 </div>
 
-<!-- MODALS -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-title" id="modal-title">Confirm</div>
-    <div class="modal-desc" id="modal-desc">Are you sure?</div>
-    <div style="display:flex;gap:12px">
-      <button class="btn-danger" id="modal-confirm-btn">Confirm</button>
-      <button class="action-btn" onclick="closeModal()">Cancel</button>
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="modal-t" id="modal-t">Confirm</div>
+    <div class="modal-d" id="modal-d">Are you sure?</div>
+    <div class="modal-btns">
+      <button class="btn-danger" id="modal-ok">Confirm</button>
+      <button class="abtn" onclick="closeModal()">Cancel</button>
     </div>
   </div>
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast"><span id="toast-msg">Done!</span></div>
+<div class="toast" id="toastel"></div>
 
 <script>
-// ===== LEADS DATA =====
-const leadsData = [
-  {name:"Sarah Chen",initials:"SC",color:"#6366f1",role:"UX Lead",company:"NovaPay",niche:"Fintech",score:94,scoreLevel:"high",status:"replied"},
-  {name:"Marcus Reed",initials:"MR",color:"#f5a623",role:"Founder",company:"BoldBrew",niche:"E-commerce",score:87,scoreLevel:"high",status:"contacted"},
-  {name:"Amira Levin",initials:"AL",color:"#00c896",role:"CMO",company:"ScaleForge",niche:"SaaS",score:79,scoreLevel:"high",status:"new"},
-  {name:"Derek Young",initials:"DY",color:"#e879f9",role:"CTO",company:"StellarAI",niche:"AI/Tech",score:92,scoreLevel:"high",status:"replied"},
-  {name:"Priya Nair",initials:"PN",color:"#f87171",role:"Head of Growth",company:"Appify",niche:"SaaS",score:91,scoreLevel:"high",status:"new"},
-  {name:"James Wolfe",initials:"JW",color:"#34d399",role:"Founder",company:"RetailEdge",niche:"E-commerce",score:74,scoreLevel:"medium",status:"new"},
-  {name:"Laura Simmons",initials:"LS",color:"#60a5fa",role:"VP Marketing",company:"Nexio",niche:"Agency",score:68,scoreLevel:"medium",status:"contacted"},
-  {name:"Tina Okafor",initials:"TO",color:"#fb923c",role:"CEO",company:"GrowthBloom",niche:"Consulting",score:88,scoreLevel:"high",status:"new"},
-  {name:"Ryan Hu",initials:"RH",color:"#a78bfa",role:"Product Manager",company:"Celerio",niche:"SaaS",score:55,scoreLevel:"low",status:"contacted"},
-  {name:"Nina Patel",initials:"NP",color:"#2dd4bf",role:"Director of Ops",company:"BrightPath",niche:"Fintech",score:82,scoreLevel:"high",status:"new"},
+const leads=[
+  {n:"Sarah Chen",i:"SC",c:"#6366f1",r:"UX Lead",co:"NovaPay",ni:"Fintech",s:94,sl:"",st:"replied"},
+  {n:"Marcus Reed",i:"MR",c:"#f5a623",r:"Founder",co:"BoldBrew",ni:"E-commerce",s:87,sl:"",st:"contacted"},
+  {n:"Amira Levin",i:"AL",c:"#00c896",r:"CMO",co:"ScaleForge",ni:"SaaS",s:79,sl:"",st:"new"},
+  {n:"Derek Young",i:"DY",c:"#e879f9",r:"CTO",co:"StellarAI",ni:"AI/Tech",s:92,sl:"",st:"replied"},
+  {n:"Priya Nair",i:"PN",c:"#f87171",r:"Head of Growth",co:"Appify",ni:"SaaS",s:91,sl:"",st:"new"},
+  {n:"James Wolfe",i:"JW",c:"#34d399",r:"Founder",co:"RetailEdge",ni:"E-commerce",s:74,sl:"med",st:"new"},
+  {n:"Laura Simmons",i:"LS",c:"#60a5fa",r:"VP Marketing",co:"Nexio",ni:"Agency",s:68,sl:"med",st:"contacted"},
+  {n:"Tina Okafor",i:"TO",c:"#fb923c",r:"CEO",co:"GrowthBloom",ni:"Consulting",s:88,sl:"",st:"new"},
+  {n:"Ryan Hu",i:"RH",c:"#a78bfa",r:"Product Manager",co:"Celerio",ni:"SaaS",s:55,sl:"low",st:"contacted"},
+  {n:"Nina Patel",i:"NP",c:"#2dd4bf",r:"Director of Ops",co:"BrightPath",ni:"Fintech",s:82,sl:"",st:"new"},
 ];
-let filteredLeads=[...leadsData];
+let fl=[...leads];
 
-function renderLeads(leads){
-  const tbody=document.getElementById('leads-tbody');
-  tbody.innerHTML=leads.map(l=>`
-    <tr>
-      <td><div class="lead-name-cell"><div style="width:34px;height:34px;border-radius:50%;background:${l.color};color:white;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:12px;flex-shrink:0">${l.initials}</div><div style="font-weight:500">${l.name}</div></div></td>
-      <td><div style="font-weight:500">${l.role}</div><div style="font-size:11px;color:var(--muted)">${l.company}</div></td>
-      <td><span style="font-size:12px;padding:3px 10px;background:var(--border);color:var(--muted)">${l.niche}</span></td>
-      <td><div class="score-bar"><div class="score-fill"><div class="score-fill-inner ${l.scoreLevel}" style="width:${l.score}%"></div></div><span style="font-size:13px;font-weight:500">${l.score}</span></div></td>
-      <td><span class="status-pill ${l.status}">${l.status.charAt(0).toUpperCase()+l.status.slice(1)}</span></td>
-      <td><div style="display:flex;gap:8px"><button class="action-btn primary" onclick="goToOutreach('${l.name}','${l.role} at ${l.company}')">✦ Write Outreach</button><button class="action-btn" onclick="showToast('✅ Added to pipeline!')">+ CRM</button></div></td>
-    </tr>`).join('');
+function renderLeads(data){
+  document.getElementById('ltbody').innerHTML=data.map(l=>`
+  <tr>
+    <td><div class="lnc"><div style="width:34px;height:34px;border-radius:50%;background:${l.c};color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:11px;flex-shrink:0">${l.i}</div><span style="font-weight:500">${l.n}</span></div></td>
+    <td><div style="font-weight:500">${l.r}</div><div style="font-size:11px;color:var(--muted)">${l.co}</div></td>
+    <td><span style="font-size:11px;padding:2px 8px;background:var(--border);color:var(--muted)">${l.ni}</span></td>
+    <td><div class="sb-bar"><div class="sf"><div class="sfi ${l.sl}" style="width:${l.s}%"></div></div><span style="font-size:13px;font-weight:500">${l.s}</span></div></td>
+    <td><span class="pill ${l.st}">${l.st.charAt(0).toUpperCase()+l.st.slice(1)}</span></td>
+    <td><div style="display:flex;gap:8px"><button class="abtn p" onclick="goOut('${l.n}','${l.r} at ${l.co}')">✦ Write Outreach</button><button class="abtn" onclick="showToast('✅ Added to pipeline!')">+ CRM</button></div></td>
+  </tr>`).join('');
 }
-
-function filterLeads(q){
-  filteredLeads=leadsData.filter(l=>[l.name,l.company,l.role,l.niche].some(v=>v.toLowerCase().includes(q.toLowerCase())));
-  renderLeads(filteredLeads);
-}
-function filterByStatus(s){filteredLeads=s?leadsData.filter(l=>l.status===s):[...leadsData];renderLeads(filteredLeads);}
-function generateLeads(){
+function filterLeads(q){fl=leads.filter(l=>[l.n,l.co,l.r,l.ni].some(v=>v.toLowerCase().includes(q.toLowerCase())));renderLeads(fl);}
+function filterByStatus(s){fl=s?leads.filter(l=>l.st===s):[...leads];renderLeads(fl);}
+function genLeads(){
   showToast('🎯 Finding new leads...');
   setTimeout(()=>{
-    leadsData.unshift(
-      {name:"Chris Tanaka",initials:"CT",color:"#f43f5e",role:"Head of Product",company:"FluxPay",niche:"Fintech",score:85,scoreLevel:"high",status:"new"},
-      {name:"Zara Mills",initials:"ZM",color:"#8b5cf6",role:"Founder",company:"CreatorFlow",niche:"SaaS",score:78,scoreLevel:"medium",status:"new"}
+    leads.unshift(
+      {n:"Chris Tanaka",i:"CT",c:"#f43f5e",r:"Head of Product",co:"FluxPay",ni:"Fintech",s:85,sl:"",st:"new"},
+      {n:"Zara Mills",i:"ZM",c:"#8b5cf6",r:"Founder",co:"CreatorFlow",ni:"SaaS",s:78,sl:"med",st:"new"}
     );
-    filteredLeads=[...leadsData];
-    renderLeads(filteredLeads);
-    showToast('✅ 2 new leads found!');
-  },1500);
+    fl=[...leads];renderLeads(fl);showToast('✅ 2 new leads found!');
+  },1400);
 }
 
-// ===== OUTREACH =====
-const templates={
-  email:(n,r,s,h)=>`Subject: Quick idea for ${n.split(' ')[0]} re: your growth\n\nHi ${n.split(' ')[0]},\n\n${h}\n\nThat's exactly where I come in. I specialise in ${s} for companies at your stage — and I think there's a real opportunity to move the needle.\n\nWould a 20-minute call this week make sense? Happy to share results from similar clients before you commit to anything.\n\nNo pitch deck — just a conversation.\n\nBest,\nJamie`,
+const tmpl={
+  email:(n,r,s,h)=>`Subject: Quick idea for ${n.split(' ')[0]} re: your growth\n\nHi ${n.split(' ')[0]},\n\n${h}\n\nThat's exactly where I come in. I specialise in ${s} for companies at your stage — and I think there's a real opportunity here.\n\nWould a 20-minute call this week make sense? Happy to share results from similar clients first.\n\nNo pitch deck — just a conversation.\n\nBest,\nJamie`,
   linkedin:(n,r,s,h)=>`Hey ${n.split(' ')[0]},\n\n${h}\n\nI help teams like yours with ${s} — thought it might be worth a quick chat.\n\nOpen to connecting?`,
   twitter:(n,r,s,h)=>`Hey ${n.split(' ')[0]}! Noticed your recent updates.\n\nQuick thought: ${h}\n\nWorking on ${s} lately — happy to share what's working if you're open to a DM.`,
-  followup:(n,r,s,h)=>`Hi ${n.split(' ')[0]},\n\nJust circling back on my last note — I know things get busy.\n\nStill think there's a solid fit here around ${s}. Happy to keep it to 15 minutes, no strings.\n\nWorth a quick chat?\n\nJamie`
+  followup:(n,r,s,h)=>`Hi ${n.split(' ')[0]},\n\nJust circling back on my last message — I know things get busy.\n\nStill think there's a great fit around ${s}. Happy to keep it to 15 minutes, no strings.\n\nWorth a quick chat?\n\nJamie`
 };
-let currentTab='email';
+let curTab='email';
 
 function switchTab(btn,tab){
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  currentTab=tab;
-  document.getElementById('ai-output').innerHTML=`<div class="ai-output-label">Output</div><div style="color:rgba(245,240,232,.3);font-size:13px">Click "Generate with AI" to create a ${tab} message →</div>`;
-  document.getElementById('output-actions').style.display='none';
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');curTab=tab;
+  document.getElementById('ai-box').innerHTML=`<div class="ai-label">Output</div><span style="color:rgba(245,240,232,.3);font-size:13px">Click Generate to create a ${tab} message →</span>`;
+  document.getElementById('out-acts').style.display='none';
 }
-
-function generateOutreach(){
-  const n=document.getElementById('lead-name-input').value||'Your Lead';
-  const r=document.getElementById('lead-role-input').value||'Founder';
-  const s=document.getElementById('service-input').value||'your service';
-  const h=document.getElementById('hook-input').value||'I noticed some interesting things about your business.';
-  const out=document.getElementById('ai-output');
-  out.innerHTML=`<div class="ai-output-label">Generating</div><div style="color:rgba(245,240,232,.4);display:flex;align-items:center;gap:8px;font-size:13px"><span>Writing personalised message</span><span style="display:inline-flex;gap:3px"><span style="animation:dotB 1.2s ease-in-out infinite;background:var(--accent);width:4px;height:4px;border-radius:50%;display:inline-block"></span><span style="animation:dotB 1.2s ease-in-out .2s infinite;background:var(--accent);width:4px;height:4px;border-radius:50%;display:inline-block"></span><span style="animation:dotB 1.2s ease-in-out .4s infinite;background:var(--accent);width:4px;height:4px;border-radius:50%;display:inline-block"></span></span></div>`;
-  const msg=(templates[currentTab]||templates.email)(n,r,s,h);
+function genOutreach(){
+  const n=document.getElementById('in-name').value||'Your Lead';
+  const r=document.getElementById('in-role').value||'Founder';
+  const s=document.getElementById('in-svc').value||'your service';
+  const h=document.getElementById('in-hook').value||'I noticed something interesting about your business.';
+  const box=document.getElementById('ai-box');
+  box.innerHTML=`<div class="ai-label">Generating</div><span style="color:rgba(245,240,232,.4);font-size:13px">Writing personalised message...</span>`;
+  const msg=(tmpl[curTab]||tmpl.email)(n,r,s,h);
   let i=0;
   setTimeout(()=>{
-    out.innerHTML=`<div class="ai-output-label">Output — ${currentTab.toUpperCase()}</div><div id="typed-out" style="white-space:pre-wrap"></div><span class="typing-cursor"></span>`;
-    document.getElementById('output-actions').style.display='flex';
-    const el=document.getElementById('typed-out');
-    const iv=setInterval(()=>{el.textContent=msg.slice(0,i);i+=4;if(i>=msg.length){clearInterval(iv);el.textContent=msg;out.querySelector('.typing-cursor').style.display='none';showToast('✦ Message generated!');}},18);
-  },900);
+    box.innerHTML=`<div class="ai-label">Output — ${curTab.toUpperCase()}</div><span id="typed"></span><span class="cursor"></span>`;
+    document.getElementById('out-acts').style.display='flex';
+    const el=document.getElementById('typed');
+    const iv=setInterval(()=>{el.textContent=msg.slice(0,i);i+=5;if(i>=msg.length){clearInterval(iv);el.textContent=msg;box.querySelector('.cursor').style.display='none';showToast('✦ Message generated!');}},16);
+  },800);
+}
+function goOut(name,role){
+  document.getElementById('in-name').value=name;
+  document.getElementById('in-role').value=role;
+  go('outreach');
 }
 
-function goToOutreach(name,role){
-  document.getElementById('lead-name-input').value=name;
-  document.getElementById('lead-role-input').value=role;
-  showPage('outreach');
+function setSec(el,id){
+  document.querySelectorAll('.sni').forEach(i=>i.classList.remove('on'));
+  document.querySelectorAll('.sp').forEach(p=>p.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById(id).classList.add('on');
 }
 
-// ===== SETTINGS =====
-function showSettingsPanel(id){
-  document.querySelectorAll('.settings-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.settings-nav-item').forEach(i=>i.classList.remove('active'));
-  document.getElementById('sp-'+id).classList.add('active');
-  event.currentTarget.classList.add('active');
+const titles={dashboard:'Dashboard',leads:'Lead Finder',outreach:'AI Outreach',crm:'Pipeline CRM',settings:'Settings'};
+function go(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.sb-nav a').forEach(a=>a.classList.remove('on'));
+  document.getElementById('p-'+page).classList.add('on');
+  const nav=document.getElementById('n-'+page);
+  if(nav)nav.classList.add('on');
+  document.getElementById('ptitle').textContent=titles[page]||page;
+  if(page==='leads')renderLeads(fl);
 }
-function toggleSwitch(el){el.classList.toggle('on');showToast(el.classList.contains('on')?'✅ Enabled':'Disabled');}
-
-// ===== NAVIGATION =====
-function showPage(page){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.sidebar-nav a').forEach(a=>a.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
-  const navEl=document.getElementById('nav-'+page);
-  if(navEl)navEl.classList.add('active');
-  const titles={dashboard:'Dashboard',leads:'Lead Finder',outreach:'AI Outreach',crm:'Pipeline CRM',settings:'Settings'};
-  document.getElementById('topbar-title').textContent=titles[page]||page;
-  if(page==='leads')renderLeads(filteredLeads);
-}
-
 function launchApp(){
   document.getElementById('landing').style.display='none';
   document.getElementById('app').style.display='block';
-  renderLeads(leadsData);
+  renderLeads(leads);
   showToast('👋 Welcome! Your 14-day trial has started.');
 }
 function exitApp(){
@@ -907,27 +771,26 @@ function exitApp(){
   document.getElementById('landing').style.display='block';
 }
 
-// ===== MODAL =====
-const modalConfigs={
-  deleteLeads:{title:'Delete All Leads?',desc:'This will permanently remove all 247 leads from your account. This action cannot be undone.',btn:'Yes, delete all leads',action:()=>showToast('All leads deleted.')},
-  deleteAccount:{title:'Delete Your Account?',desc:'This will permanently delete your ProspectPilot account, all your leads, messages, and pipeline data. This cannot be undone.',btn:'Yes, delete my account',action:()=>showToast('Account deletion requested.')}
+const modals={
+  leads:{t:'Delete All Leads?',d:'This will permanently remove all 247 leads. This cannot be undone.',ok:'Yes, delete all leads',fn:()=>showToast('All leads deleted.')},
+  account:{t:'Delete Your Account?',d:'This permanently deletes your account, all leads, messages, and pipeline data.',ok:'Yes, delete my account',fn:()=>showToast('Account deletion requested.')}
 };
 function openModal(type){
-  const cfg=modalConfigs[type];
-  document.getElementById('modal-title').textContent=cfg.title;
-  document.getElementById('modal-desc').textContent=cfg.desc;
-  document.getElementById('modal-confirm-btn').textContent=cfg.btn;
-  document.getElementById('modal-confirm-btn').onclick=()=>{cfg.action();closeModal();};
-  document.getElementById('modal-overlay').classList.add('open');
+  const m=modals[type];
+  document.getElementById('modal-t').textContent=m.t;
+  document.getElementById('modal-d').textContent=m.d;
+  const ok=document.getElementById('modal-ok');
+  ok.textContent=m.ok;
+  ok.onclick=()=>{m.fn();closeModal();};
+  document.getElementById('overlay').classList.add('open');
 }
-function closeModal(e){if(!e||e.target===document.getElementById('modal-overlay'))document.getElementById('modal-overlay').classList.remove('open');}
+function closeModal(){document.getElementById('overlay').classList.remove('open');}
 
-// ===== TOAST =====
 function showToast(msg){
-  const t=document.getElementById('toast');
-  document.getElementById('toast-msg').textContent=msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+  const el=document.getElementById('toastel');
+  el.textContent=msg;el.classList.add('show');
+  clearTimeout(el._t);
+  el._t=setTimeout(()=>el.classList.remove('show'),3000);
 }
 </script>
 </body>
